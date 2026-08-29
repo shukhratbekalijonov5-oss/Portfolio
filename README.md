@@ -26,9 +26,10 @@ renderer falls back to `en`, so the page never shows a raw key.
 | What | Where | Note |
 |---|---|---|
 | Domain | `index.html`, `robots.txt`, `sitemap.xml` | replace `REPLACE-WITH-YOUR-DOMAIN` (4 places in `index.html`) |
-| Email | `DATA.meta.email` | currently `shukhratbekalijonov4@gmail.com` — confirm this is the address you want public |
-| LinkedIn | `DATA.meta.linkedin` | `null` → the contact card renders as "Not added yet" until set |
-| Résumé | `DATA.meta.resume` | drop `resume.pdf` beside `index.html`, then set to `"resume.pdf"` — a download button appears in the hero |
+| Email | `DATA.meta.email` | currently `shukhratbekalijonov4@gmail.com` — confirm this is the address you want public. Single source: the contact card and the hero mail icon both read it |
+| LinkedIn | `DATA.meta.linkedin` | `null` → the hero social icon is hidden until set. LinkedIn is deliberately not a contact card |
+| Résumé | `DATA.meta.resume` | drop `resume.pdf` beside `index.html`, then set to `"resume.pdf"` — a download button appears in the hero. Résumé is deliberately not a contact card |
+| Phone | `DATA.meta.phone` / `phoneHref` | `010 8211 0660` — display value and the `tel:` link are separate fields |
 | Photo | `DATA.meta.photo` | set to `"assets/portrait.jpg"` to replace the `SA` monogram |
 
 ## Project screenshots
