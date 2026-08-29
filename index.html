@@ -1,0 +1,1902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Shukhratbek Alijonov — Software Engineer</title>
+<meta name="description" content="Software engineer building production full-stack, AI and cloud systems. Next.js, NestJS, Spring Boot, FastAPI, PostgreSQL, Kafka, Qdrant, Kubernetes." />
+<meta name="author" content="Shukhratbek Alijonov" />
+
+<!-- TODO: replace REPLACE-WITH-YOUR-DOMAIN in this file, robots.txt and sitemap.xml once deployed -->
+<link rel="canonical" href="https://REPLACE-WITH-YOUR-DOMAIN/" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://REPLACE-WITH-YOUR-DOMAIN/" />
+<meta property="og:title" content="Shukhratbek Alijonov — Software Engineer" />
+<meta property="og:description" content="Software engineer building production full-stack, AI and cloud systems." />
+<meta property="og:image" content="https://REPLACE-WITH-YOUR-DOMAIN/assets/hr-copilot/hr-copilot-candidate-home-dark.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#060e1c" />
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root{
+  /* Surfaces — HR Copilot dark tokens */
+  --bg:            #060e1c;
+  --surface:       #0b162a;
+  --surface-2:     #101f3a;
+  --elevated:      #081326;
+  --brand-soft:    #11264e;
+  --ai-tint:       #101c33;
+
+  /* Text */
+  --text:          #f0f6ff;
+  --muted:         #a2b3cd;
+  --subtle:        #6e82a0;
+  --inverted:      #060e1c;
+
+  /* Lines */
+  --border:        #1c3054;
+  --border-strong: #294470;
+  --ai-line:       #2b3a63;
+
+  /* Accents */
+  --accent:        #4285ff;
+  --accent-hover:  #609aff;
+  --ai:            #a99dff;
+  --success:       #34d399;
+
+  /* Contextual card fill, overridden per section */
+  --card: var(--surface);
+
+  --shell: 1100px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+
+body{
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+/* ── BACKGROUND: 32px grid + radial bloom (fixed, behind everything) ── */
+body::before{
+  content:'';
+  position: fixed; inset: 0; z-index: -2;
+  background-image:
+    linear-gradient(to right, rgba(66,133,255,0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(66,133,255,0.07) 1px, transparent 1px);
+  background-size: 32px 32px;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.55) 45%, transparent 88%);
+          mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.55) 45%, transparent 88%);
+  pointer-events: none;
+}
+body::after{
+  content:'';
+  position: fixed; inset: 0; z-index: -1;
+  background:
+    radial-gradient(60rem 32rem at 12% -8%, rgba(66,133,255,0.13), transparent 62%),
+    radial-gradient(48rem 26rem at 92% 4%, rgba(169,157,255,0.09), transparent 60%);
+  pointer-events: none;
+}
+
+::selection { background: rgba(66,133,255,0.28); color: #fff; }
+
+a { color: inherit; }
+
+/* ── NAV ── */
+nav{
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.1rem 4rem;
+  background: rgba(6,14,28,0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo{
+  font-family: 'Playfair Display', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', serif;
+  font-size: 1.1rem; font-weight: 700; color: var(--text); text-decoration: none;
+}
+.nav-logo span { color: var(--accent); }
+
+.nav-links { display: flex; gap: 2.2rem; list-style: none; }
+.nav-links a{
+  color: var(--muted); text-decoration: none;
+  font-size: 0.86rem; font-weight: 500; letter-spacing: 0.01em;
+  transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--accent); }
+
+.nav-right { display: flex; align-items: center; gap: 0.9rem; }
+
+.lang-switcher{
+  display: flex; border: 1.5px solid var(--border); border-radius: 6px;
+  overflow: hidden; font-size: 0.78rem; font-weight: 600;
+}
+.lang-btn{
+  padding: 0.38rem 0.75rem; cursor: pointer; background: transparent; border: none;
+  color: var(--muted); font-family: inherit; font-size: 0.78rem; font-weight: 600;
+  transition: background 0.15s, color 0.15s;
+}
+.lang-btn.active { background: var(--accent); color: #fff; }
+.lang-btn:not(.active):hover { background: var(--surface-2); color: var(--text); }
+
+.btn-hire{
+  background: var(--accent); color: #fff; text-decoration: none;
+  font-weight: 600; font-size: 0.86rem; padding: 0.52rem 1.4rem;
+  border-radius: 6px; transition: background 0.2s, box-shadow 0.2s;
+}
+.btn-hire:hover { background: var(--accent-hover); box-shadow: 0 0 18px rgba(66,133,255,0.35); }
+
+.nav-burger{
+  display: none; background: transparent; border: 1px solid var(--border);
+  border-radius: 6px; color: var(--text); width: 36px; height: 34px;
+  cursor: pointer; align-items: center; justify-content: center;
+}
+#navMobile{
+  position: fixed; top: 61px; left: 0; right: 0; z-index: 99;
+  background: rgba(6,14,28,0.97);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  max-height: 0; overflow: hidden; transition: max-height 0.35s var(--ease);
+}
+#navMobile.open { max-height: 26rem; }
+#navMobile a{
+  display: block; padding: 0.9rem 1.5rem; text-decoration: none;
+  color: var(--muted); font-size: 0.9rem; font-weight: 500;
+  border-bottom: 1px solid var(--border);
+}
+#navMobile a:last-child { border-bottom: none; }
+
+/* ── SHARED SECTION SHELL ── */
+.section{
+  border-top: 1px solid var(--border);
+  padding: 6rem 2rem;
+}
+.section--raised { background: var(--surface); --card: var(--surface-2); }
+.section-inner { max-width: var(--shell); margin: 0 auto; }
+
+.section-eyebrow{
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 0.7rem;
+}
+.section-title{
+  font-family: 'Playfair Display', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', serif;
+  font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;
+  color: var(--text); line-height: 1.1; margin-bottom: 1rem;
+}
+.section-lede{
+  font-size: 0.94rem; color: var(--muted); line-height: 1.8;
+  max-width: 620px; margin-bottom: 3rem;
+}
+
+/* ── PILL / TAG ── */
+.tag{
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.78rem; font-weight: 400;
+  padding: 0.3rem 0.75rem; border-radius: 20px;
+  white-space: nowrap;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.tag:hover { border-color: var(--border-strong); color: var(--text); }
+.tag--key { color: #cfe0ff; border-color: rgba(66,133,255,0.32); background: rgba(66,133,255,0.07); }
+.tag--key:hover { border-color: var(--accent); }
+.tag--ai  { color: #d5cfff; border-color: rgba(169,157,255,0.32); background: rgba(169,157,255,0.07); }
+.tag--ai:hover { border-color: var(--ai); }
+
+/* ── SCROLL REVEAL ── */
+.reveal{
+  opacity: 0; transform: translateY(22px);
+  transition: opacity 0.75s var(--ease), transform 0.75s var(--ease);
+}
+.reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce){
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+
+/* ── HERO ── */
+#hero{
+  min-height: 100vh; max-width: var(--shell); margin: 0 auto;
+  display: grid; grid-template-columns: 1fr auto;
+  align-items: center; gap: 4rem;
+  padding: 7rem 2rem 4rem;
+}
+
+.status-badge{
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: rgba(66,133,255,0.08);
+  border: 1px solid rgba(66,133,255,0.22);
+  color: #a9c8ff;
+  font-size: 0.8rem; font-weight: 500;
+  padding: 0.42rem 1.1rem; border-radius: 20px; margin-bottom: 1.8rem;
+}
+.status-dot{
+  width: 7px; height: 7px; background: var(--success); border-radius: 50%;
+  box-shadow: 0 0 8px var(--success); animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.35} }
+
+.hero-name{
+  font-family: 'Playfair Display', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', serif;
+  font-size: clamp(2.6rem, 5.2vw, 4.6rem);
+  font-weight: 800; line-height: 1.04; letter-spacing: -0.02em;
+  color: var(--text); margin-bottom: 1rem;
+}
+.hero-name em { font-style: normal; color: var(--accent); display: block; }
+
+.hero-handle{
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.8rem; color: var(--subtle); margin-bottom: 1.6rem;
+}
+.hero-handle a { color: var(--subtle); text-decoration: none; transition: color 0.2s; }
+.hero-handle a:hover { color: var(--accent); }
+.hero-handle .sep { color: var(--border-strong); margin: 0 0.55rem; }
+
+.hero-role{
+  font-size: 1.02rem; font-weight: 600; color: var(--text);
+  margin-bottom: 0.9rem; line-height: 1.5;
+}
+.hero-tagline{
+  font-size: 0.95rem; color: var(--muted); line-height: 1.82;
+  max-width: 540px; margin-bottom: 2.2rem;
+}
+.hero-tagline strong { color: var(--text); font-weight: 600; }
+.hero-tagline .hl { color: var(--accent); font-weight: 600; }
+
+.hero-cta { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1.6rem; }
+
+.btn-primary{
+  background: var(--accent); color: #fff; text-decoration: none;
+  font-weight: 600; font-size: 0.88rem; padding: 0.72rem 1.7rem; border-radius: 6px;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+.btn-primary:hover{
+  background: var(--accent-hover); transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(66,133,255,0.28);
+}
+.btn-outline{
+  border: 1.5px solid var(--border-strong); color: var(--text); background: var(--surface);
+  text-decoration: none; font-weight: 500; font-size: 0.88rem;
+  padding: 0.72rem 1.7rem; border-radius: 6px;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  display: inline-flex; align-items: center; gap: 0.45rem;
+}
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); background: var(--brand-soft); }
+
+.hero-socials { display: flex; gap: 0.6rem; margin-bottom: 2.6rem; }
+.social-link{
+  width: 36px; height: 36px; border: 1px solid var(--border); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--muted); text-decoration: none;
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+}
+.social-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+.hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.7rem; }
+.stat-card{
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 0.85rem 0.7rem; min-width: 0; text-align: center;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.stat-card:hover { border-color: var(--border-strong); transform: translateY(-3px); }
+.stat-number{
+  font-family: 'Playfair Display', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', serif; font-size: 2rem; font-weight: 700;
+  color: var(--accent); line-height: 1; display: block;
+}
+.stat-label{
+  font-size: 0.68rem; color: var(--subtle); margin-top: 0.35rem;
+  text-transform: uppercase; letter-spacing: 0.05em; display: block; line-height: 1.4;
+}
+
+/* ── HERO PORTRAIT FRAME ── */
+.hero-photo-wrap { display: flex; align-items: center; justify-content: center; }
+.photo-outer-frame { position: relative; padding: 14px; }
+.photo-outer-frame::before, .photo-outer-frame::after{
+  content:''; position: absolute; width: 36px; height: 36px;
+  border-color: var(--accent); border-style: solid; opacity: 0.55;
+}
+.photo-outer-frame::before { top: 0; left: 0; border-width: 2px 0 0 2px; border-radius: 3px 0 0 0; }
+.photo-outer-frame::after  { bottom: 0; right: 0; border-width: 0 2px 2px 0; border-radius: 0 0 3px 0; }
+.photo-inner-frame { position: relative; }
+.photo-inner-frame::before, .photo-inner-frame::after{
+  content:''; position: absolute; width: 36px; height: 36px;
+  border-color: var(--accent); border-style: solid; opacity: 0.55; z-index: 2;
+}
+.photo-inner-frame::before { top: -14px; right: -14px; border-width: 2px 2px 0 0; border-radius: 0 3px 0 0; }
+.photo-inner-frame::after  { bottom: -14px; left: -14px; border-width: 0 0 2px 2px; border-radius: 0 0 0 3px; }
+
+.photo-img-wrap{
+  border: 2px solid var(--border); border-radius: 14px; overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.45); position: relative;
+  width: 310px; height: 400px;
+  background: linear-gradient(160deg, var(--surface-2), var(--elevated));
+  display: flex; align-items: center; justify-content: center;
+}
+.photo-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+
+/* Monogram fallback shown until a real photo is dropped in */
+.photo-monogram{
+  font-family: 'Playfair Display', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', serif; font-size: 5.4rem; font-weight: 800;
+  background: linear-gradient(140deg, var(--accent), var(--ai));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  letter-spacing: -0.03em; user-select: none;
+}
+.photo-monogram-hint{
+  position: absolute; top: 14px; left: 50%; transform: translateX(-50%);
+  font-family: 'JetBrains Mono', monospace; font-size: 0.62rem;
+  color: var(--subtle); letter-spacing: 0.08em; white-space: nowrap;
+}
+
+.photo-badge{
+  position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+  background: rgba(11,22,42,0.94); border: 1px solid var(--border-strong);
+  border-radius: 20px; padding: 0.45rem 1rem;
+  display: flex; align-items: center; gap: 0.5rem; white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+}
+.photo-badge-text { font-size: 0.76rem; color: var(--text); font-weight: 500; }
+
+/* ── ABOUT ── */
+.about-inner{
+  max-width: var(--shell); margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
+}
+.about-body { display: flex; flex-direction: column; gap: 1.2rem; margin-top: 0.5rem; }
+.about-body p { font-size: 0.95rem; color: var(--muted); line-height: 1.85; }
+.about-body strong { color: var(--text); font-weight: 600; }
+
+.about-card{
+  display: flex; gap: 1rem; align-items: flex-start;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1.1rem 1.2rem; margin-bottom: 0.9rem;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.about-card:last-child { margin-bottom: 0; }
+.about-card:hover { border-color: var(--border-strong); transform: translateX(3px); }
+.about-card-icon{
+  width: 36px; height: 36px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 0.1rem;
+}
+.ic--blue   { background: rgba(66,133,255,0.12);  color: var(--accent); }
+.ic--violet { background: rgba(169,157,255,0.12); color: var(--ai); }
+.ic--green  { background: rgba(52,211,153,0.12);  color: var(--success); }
+.ic--slate  { background: rgba(162,179,205,0.10); color: var(--muted); }
+
+.about-card-title { font-size: 0.92rem; font-weight: 600; color: var(--text); margin-bottom: 0.3rem; }
+.about-card-desc  { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
+
+/* ── TECH STACK ── */
+.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.skill-card{
+  background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+  padding: 1.6rem 1.5rem;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.skill-card:hover { border-color: var(--border-strong); transform: translateY(-3px); }
+.skill-card--primary { border-color: rgba(66,133,255,0.28); }
+.skill-card-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.2rem; }
+.skill-icon{
+  width: 34px; height: 34px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.skill-card-title { font-size: 1rem; font-weight: 600; color: var(--text); }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+/* ── JOURNEY (experience) ── */
+.exp-list { display: flex; flex-direction: column; gap: 2rem; }
+.exp-item { display: grid; grid-template-columns: 200px 1fr; gap: 2rem; align-items: start; }
+.exp-meta { display: flex; flex-direction: column; gap: 0.5rem; padding-top: 1.6rem; }
+.exp-badge{
+  display: inline-block; background: rgba(52,211,153,0.10); color: var(--success);
+  border: 1px solid rgba(52,211,153,0.22);
+  font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.8rem;
+  border-radius: 20px; width: fit-content; letter-spacing: 0.02em;
+}
+.exp-badge--blue   { background: rgba(66,133,255,0.09);  color: var(--accent); border-color: rgba(66,133,255,0.24); }
+.exp-badge--violet { background: rgba(169,157,255,0.09); color: var(--ai);     border-color: rgba(169,157,255,0.24); }
+.exp-badge--muted  { background: rgba(162,179,205,0.07); color: var(--muted);  border-color: var(--border); }
+.exp-anchor{
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.74rem; color: var(--subtle); line-height: 1.6;
+}
+
+.exp-card{
+  background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+  padding: 1.8rem 2rem;
+  transition: border-color 0.25s;
+}
+.exp-card:hover { border-color: var(--border-strong); }
+.exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; gap: 1rem; }
+.exp-role { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 0.2rem; }
+.exp-company { font-size: 0.85rem; color: var(--subtle); }
+.exp-tag{
+  background: rgba(66,133,255,0.08); color: var(--accent);
+  border: 1px solid rgba(66,133,255,0.2);
+  font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.8rem;
+  border-radius: 20px; white-space: nowrap; flex-shrink: 0;
+}
+.exp-summary { font-size: 0.9rem; color: var(--muted); line-height: 1.78; margin-bottom: 1rem; }
+.exp-summary strong { color: var(--text); font-weight: 600; }
+.exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+.exp-bullets li{
+  font-size: 0.86rem; color: var(--muted); line-height: 1.7;
+  padding-left: 1.1rem; position: relative;
+}
+.exp-bullets li::before{
+  content: '–'; position: absolute; left: 0; color: var(--accent); font-weight: 600;
+}
+
+/* ── PROJECTS ── */
+.projects-list { display: flex; flex-direction: column; gap: 1.4rem; }
+
+.proj-card{
+  background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+  padding: 2rem; position: relative; overflow: hidden;
+  transition: transform 0.25s var(--ease), border-color 0.25s, box-shadow 0.25s;
+}
+.proj-card:hover{
+  transform: translateY(-5px);
+  border-color: var(--border-strong);
+  box-shadow: 0 24px 52px rgba(0,0,0,0.42);
+}
+.proj-card--featured::before{
+  content:''; position: absolute; top: 0; left: 0; right: 0; height: 220px;
+  background: linear-gradient(155deg, rgba(66,133,255,0.16) 0%, rgba(169,157,255,0.08) 45%, transparent 78%);
+  pointer-events: none; border-radius: 16px 16px 0 0; z-index: 0;
+}
+.proj-card--featured > * { position: relative; z-index: 1; }
+
+.proj-wide-inner{
+  display: grid; grid-template-columns: 45fr 55fr; gap: 2rem;
+  align-items: stretch; min-width: 0;
+}
+.proj-wide-left  { display: flex; flex-direction: column; gap: 1.1rem; min-width: 0; }
+.proj-wide-right{
+  display: flex; flex-direction: column; gap: 1.4rem;
+  min-width: 0; align-items: stretch;
+}
+.proj-wide-right .proj-slideshow{
+  width: 100%; aspect-ratio: 16/10; height: auto; min-height: 0;
+  background: var(--elevated); flex-shrink: 0;
+}
+.proj-wide-right .slideshow-track { height: 100%; }
+.proj-wide-right .slide-img{
+  width: 100%; height: 100%; min-width: 100%; flex-shrink: 0;
+  object-fit: cover; object-position: top center;
+  background: var(--elevated);
+}
+
+.proj-card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+.proj-wide-left .proj-card-header { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+.proj-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.proj-badge{
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: 0.73rem; font-weight: 500; padding: 0.32rem 0.85rem;
+  border-radius: 20px; border: 1px solid var(--border);
+  color: var(--muted); background: var(--bg);
+}
+.proj-badge--colored { background: rgba(66,133,255,0.07); border-color: rgba(66,133,255,0.2); color: var(--accent); }
+.proj-badge--star    { background: rgba(245,200,90,0.09); border-color: rgba(245,200,90,0.26); color: #f5c85a; }
+
+.proj-ext-link{
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.4rem 0.9rem; border: 1px solid var(--border); border-radius: 8px;
+  color: var(--muted); text-decoration: none; font-size: 0.76rem; font-weight: 600;
+  white-space: nowrap; flex-shrink: 0;
+  transition: border-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.3s;
+}
+a.proj-ext-link{
+  background: linear-gradient(135deg, rgba(66,133,255,0.09), rgba(169,157,255,0.09));
+  border-color: rgba(66,133,255,0.32); color: var(--accent);
+  animation: visitPulse 2.8s ease-in-out infinite;
+}
+a.proj-ext-link:hover{
+  box-shadow: 0 0 16px rgba(66,133,255,0.4); border-color: var(--accent);
+  transform: translateY(-1px); animation: none;
+}
+@keyframes visitPulse{
+  0%,100% { box-shadow: 0 0 0 0 rgba(66,133,255,0); border-color: rgba(66,133,255,0.32); }
+  50%     { box-shadow: 0 0 12px rgba(66,133,255,0.3); border-color: rgba(66,133,255,0.65); }
+}
+
+.proj-title{
+  font-family: 'Playfair Display', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', serif; font-size: 1.6rem; font-weight: 700;
+  color: var(--text); line-height: 1.2;
+}
+.proj-card--featured .proj-title { font-size: 2rem; }
+.proj-overview { font-size: 0.89rem; color: var(--muted); line-height: 1.8; }
+.proj-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+.proj-highlights { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+.proj-highlights li{
+  font-size: 0.85rem; color: var(--muted); line-height: 1.7;
+  padding-left: 1.2rem; position: relative;
+}
+.proj-highlights li::before{
+  content: ''; position: absolute; left: 0; top: 0.62em;
+  width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
+}
+
+/* Placeholder slot for projects with no screenshots yet */
+.proj-image-slot{
+  background: var(--bg); border: 1.5px dashed var(--border-strong); border-radius: 10px;
+  aspect-ratio: 16/10; display: flex; flex-direction: column; gap: 0.4rem;
+  align-items: center; justify-content: center;
+  color: var(--subtle); font-family: 'JetBrains Mono', monospace;
+  font-size: 0.76rem; letter-spacing: 0.04em; text-align: center; padding: 1rem;
+}
+.proj-image-slot span { font-size: 0.68rem; color: var(--border-strong); }
+
+/* ── CASE STUDY (accordion) ── */
+.case{
+  border: 1px solid var(--border); border-radius: 12px;
+  background: rgba(6,14,28,0.5); overflow: hidden;
+}
+.case > summary{
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 0.9rem 1.2rem;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent); transition: background 0.2s;
+}
+.case > summary::-webkit-details-marker { display: none; }
+.case > summary:hover { background: var(--brand-soft); }
+.case[open] > summary { border-bottom: 1px solid var(--border); }
+.case-chevron { transition: transform 0.3s var(--ease); flex-shrink: 0; }
+.case[open] .case-chevron { transform: rotate(180deg); }
+.case-body { padding: 1.4rem 1.2rem; display: grid; gap: 1.3rem; }
+.case-block-label{
+  font-size: 0.66rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase;
+  color: var(--subtle); margin-bottom: 0.45rem;
+}
+.case-block p, .case-block li { font-size: 0.85rem; color: var(--muted); line-height: 1.75; }
+.case-block ul { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+.case-block li { padding-left: 1.1rem; position: relative; }
+.case-block li::before { content: '–'; position: absolute; left: 0; color: var(--accent); }
+.case-block strong { color: var(--text); font-weight: 600; }
+@media (min-width: 761px){ .case-body { grid-template-columns: 1fr 1fr; } }
+
+/* ── WHY THESE TECHNOLOGIES ── */
+.proj-why-label{
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.6rem;
+}
+.proj-why-list { display: flex; flex-direction: column; gap: 0.7rem; }
+.proj-why-item { font-size: 0.83rem; color: var(--muted); line-height: 1.7; }
+.proj-why-item strong { color: var(--text); font-weight: 600; }
+
+/* ── SLIDESHOW ── */
+.proj-slideshow{
+  position: relative; border-radius: 10px; overflow: hidden;
+  background: var(--elevated); border: 1px solid var(--border);
+  aspect-ratio: 16/9; user-select: none;
+}
+.slideshow-track{
+  display: flex; width: 100%; height: 100%;
+  transition: transform 0.4s var(--ease);
+}
+.slide-img{
+  min-width: 100%; width: 100%; height: 100%;
+  object-fit: cover; object-position: top; flex-shrink: 0;
+}
+.slide-btn{
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 34px; height: 34px;
+  background: rgba(11,22,42,0.9); border: 1px solid var(--border-strong);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--text);
+  transition: background 0.2s, transform 0.2s; z-index: 10;
+}
+.slide-btn:hover { background: var(--surface-2); transform: translateY(-50%) scale(1.08); }
+.slide-btn--prev { left: 10px; }
+.slide-btn--next { right: 10px; }
+
+.slide-dots{
+  position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 6px; z-index: 10;
+}
+.slide-dot{
+  width: 7px; height: 7px; border-radius: 50%;
+  background: rgba(240,246,255,0.35); border: 1px solid rgba(240,246,255,0.6);
+  cursor: pointer; padding: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+.slide-dot.active { background: #fff; transform: scale(1.25); }
+
+.slide-caption{
+  position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+  background: rgba(6,14,28,0.82); border: 1px solid var(--border);
+  color: var(--text); font-size: 0.7rem;
+  padding: 0.24rem 0.7rem; border-radius: 10px; white-space: nowrap;
+  opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 10;
+}
+.proj-slideshow:hover .slide-caption { opacity: 1; }
+
+/* ── PRODUCTION / DEVOPS ── */
+.prod-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.prod-card{
+  background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+  padding: 1.5rem;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.prod-card:hover { border-color: var(--border-strong); transform: translateY(-3px); }
+.prod-card-head { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.9rem; }
+.prod-card-title { font-size: 0.95rem; font-weight: 600; color: var(--text); }
+.prod-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.prod-list li{
+  font-size: 0.82rem; color: var(--muted); line-height: 1.65;
+  padding-left: 1.05rem; position: relative;
+}
+.prod-list li::before{
+  content: ''; position: absolute; left: 0; top: 0.6em;
+  width: 4px; height: 4px; border-radius: 50%; background: var(--success);
+}
+.prod-note{
+  margin-top: 1.6rem; font-size: 0.8rem; color: var(--subtle); line-height: 1.7;
+  border-left: 2px solid var(--border-strong); padding-left: 0.9rem;
+}
+
+/* ── EDUCATION & LANGUAGES ── */
+/* heading sits directly above the grid here (no lede), matching the reference rhythm */
+#education .section-title { margin-bottom: 3rem; }
+.edu-eyebrow{
+  display: inline-block;
+  background: rgba(66,133,255,0.09);
+  padding: 0.22rem 0.65rem;
+  border-radius: 4px;
+}
+.edu-icon{
+  width: 36px; height: 36px; border-radius: 8px;
+  background: rgba(66,133,255,0.12); color: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 0.1rem;
+}
+.edu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-bottom: 2.5rem; }
+.edu-card{
+  display: flex; gap: 1rem; align-items: flex-start;
+  background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+  padding: 1.6rem 1.5rem;
+  transition: border-color 0.25s;
+}
+.edu-card:hover { border-color: var(--border-strong); }
+.edu-title  { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.35rem; }
+.edu-school { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.6rem; line-height: 1.5; }
+.edu-years  { font-size: 0.8rem; color: var(--accent); font-weight: 600; letter-spacing: 0.01em; }
+
+.lang-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.lang-card{
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 1.4rem 1rem; text-align: center;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.lang-card:hover { border-color: var(--border-strong); transform: translateY(-3px); }
+.lang-name  { font-size: 0.96rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
+.lang-level { font-size: 0.82rem; font-weight: 600; color: var(--accent); }
+
+/* ── CONTACT ── */
+.contact-section { text-align: center; }
+.contact-inner { max-width: 900px; margin: 0 auto; }
+.contact-title{
+  font-family: 'Playfair Display', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', serif;
+  font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 800;
+  color: var(--text); line-height: 1.1; margin: 0.5rem 0 1rem;
+}
+.contact-sub{
+  font-size: 0.95rem; color: var(--muted); line-height: 1.75;
+  max-width: 520px; margin: 0 auto 3rem;
+}
+.contact-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+.contact-card{
+  background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+  padding: 1.7rem 1.1rem; text-decoration: none; color: inherit;
+  display: flex; flex-direction: column; align-items: center; gap: 0.55rem;
+  transition: transform 0.22s var(--ease), border-color 0.22s, box-shadow 0.22s;
+}
+.contact-card:hover{
+  transform: translateY(-4px); border-color: var(--accent);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+}
+.contact-card--empty { opacity: 0.55; cursor: default; border-style: dashed; }
+.contact-card--empty:hover { transform: none; border-color: var(--border); box-shadow: none; }
+.contact-icon{
+  width: 44px; height: 44px; background: rgba(66,133,255,0.1); border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent); margin-bottom: 0.35rem;
+}
+.contact-card-label{
+  font-size: 0.66rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--subtle);
+}
+.contact-card-value{
+  font-size: 0.85rem; font-weight: 600; color: var(--text); word-break: break-word;
+}
+.contact-status{
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  background: rgba(52,211,153,0.08); border: 1px solid rgba(52,211,153,0.25);
+  color: var(--success); font-size: 0.82rem; font-weight: 500;
+  padding: 0.6rem 1.4rem; border-radius: 30px;
+}
+
+/* ── FOOTER ── */
+.site-footer{
+  background: var(--surface); border-top: 1px solid var(--border);
+  padding: 1.4rem 4rem;
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  font-size: 0.8rem; color: var(--subtle);
+}
+.site-footer a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.site-footer a:hover { color: var(--accent); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1000px){
+  .skills-grid, .prod-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 900px){
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .nav-burger { display: flex; }
+  .btn-hire { display: none; }
+  .section { padding: 4.5rem 1.5rem; }
+  .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .edu-grid { grid-template-columns: 1fr; }
+  .lang-grid { grid-template-columns: repeat(2, 1fr); }
+  #hero{
+    grid-template-columns: 1fr; padding: 6rem 1.5rem 4rem; gap: 2.5rem; text-align: center;
+  }
+  .hero-tagline { margin-left: auto; margin-right: auto; }
+  .hero-cta, .hero-stats, .hero-socials { justify-content: center; }
+  .hero-photo-wrap { order: -1; }
+  .photo-img-wrap { width: 240px; height: 300px; }
+  .photo-monogram { font-size: 4rem; }
+}
+@media (max-width: 760px){
+  .exp-item { grid-template-columns: 1fr; gap: 0.7rem; }
+  .exp-meta { padding-top: 0; flex-direction: row; align-items: center; flex-wrap: wrap; }
+  .exp-card { padding: 1.3rem; }
+  .exp-header { flex-direction: column; gap: 0.5rem; }
+  .proj-wide-inner { grid-template-columns: 1fr; }
+  .proj-wide-right { gap: 1.1rem; }
+  .proj-card { padding: 1.4rem; }
+  .proj-card--featured .proj-title { font-size: 1.6rem; }
+  .contact-cards { grid-template-columns: repeat(2, 1fr); }
+  .site-footer { flex-direction: column; text-align: center; padding: 1.2rem; }
+  .proj-card-header { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 580px){
+  .skills-grid, .prod-grid { grid-template-columns: 1fr; }
+  .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+  .lang-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+
+<body>
+  <nav>
+    <a href="#hero" class="nav-logo">Shukhratbek <span>Alijonov</span></a>
+    <ul class="nav-links" id="navLinks"></ul>
+    <div class="nav-right">
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang="en" type="button">EN</button>
+        <button class="lang-btn" data-lang="ko" type="button" lang="ko">한국어</button>
+        <button class="lang-btn" data-lang="uz" type="button">UZ</button>
+      </div>
+      <a class="btn-hire" id="hireBtn" href="#contact">Hire Me</a>
+      <button class="nav-burger" id="burger" type="button" aria-label="Menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div id="navMobile"></div>
+
+  <main>
+    <section id="hero"></section>
+    <section id="about"      class="section section--raised"></section>
+    <section id="skills"     class="section"></section>
+    <section id="journey"    class="section section--raised"></section>
+    <section id="projects"   class="section"></section>
+    <section id="production" class="section section--raised"></section>
+    <section id="education"  class="section"></section>
+    <section id="contact"    class="section contact-section section--raised"></section>
+  </main>
+
+  <footer class="site-footer" id="footer"></footer>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     DATA — all content lives here. Every string is { en, uz }.
+     Inline <strong> and <span class="hl"> are allowed inside text.
+     ═══════════════════════════════════════════════════════════════════ -->
+<script>
+const DATA = {
+
+  meta: {
+    name:  "Shukhratbek Alijonov",
+    first: "Shukhratbek",
+    last:  "Alijonov",
+    initials: "SA",
+    role: { en: "Software Engineer", ko: "소프트웨어 엔지니어", uz: "Dasturchi muhandis" },
+    // TODO: confirm this is the address you want published
+    email:  "shukhratbekalijonov4@gmail.com",
+    github: { handle: "shukhratbekalijonov5-oss", url: "https://github.com/shukhratbekalijonov5-oss" },
+    linkedin: null,   // TODO: add your LinkedIn URL
+    resume:   null,   // TODO: drop resume.pdf next to index.html and set to "resume.pdf"
+    photo:    null    // TODO: set to "assets/portrait.jpg" to replace the monogram
+  },
+
+  nav: [
+    { id: "about",      label: { en: "About",      ko: "소개",      uz: "Haqimda" } },
+    { id: "skills",     label: { en: "Stack",      ko: "기술 스택",  uz: "Stack" } },
+    { id: "journey",    label: { en: "Journey",    ko: "여정",      uz: "Yo'l" } },
+    { id: "projects",   label: { en: "Projects",   ko: "프로젝트",   uz: "Loyihalar" } },
+    { id: "production", label: { en: "Production", ko: "프로덕션",   uz: "Production" } },
+    { id: "education",  label: { en: "Education",  ko: "학력",      uz: "Ta'lim" } }
+  ],
+  hireLabel: { en: "Hire Me", ko: "채용 문의", uz: "Ishga oling" },
+
+  /* ── HERO ── */
+  hero: {
+    status: { en: "Open to software engineering roles", ko: "소프트웨어 엔지니어 포지션 지원 가능", uz: "Dasturchi muhandis lavozimlariga ochiq" },
+    headline: {
+      en: "Software Engineer building production-ready full-stack, AI and cloud systems.",
+      ko: "실제 프로덕션에서 동작하는 풀스택 · AI · 클라우드 시스템을 만드는 소프트웨어 엔지니어입니다.",
+      uz: "Full-stack, AI va bulut tizimlarini production darajasida quradigan dasturchi muhandis."
+    },
+    tagline: {
+      en: "I build <strong>complete systems</strong> — not just interfaces. Backend services in <span class='hl'>NestJS, Spring Boot and FastAPI</span>, data in PostgreSQL, MongoDB, Redis, Kafka and Qdrant, and the <strong>Kubernetes infrastructure</strong> that keeps them running. My work includes <span class='hl'>evidence-grounded AI retrieval</span>, realtime messaging over WebSocket and WebRTC, and the monitoring, alerting and backup verification that turns a project into something you can actually operate.",
+      ko: "저는 화면만이 아니라 <strong>시스템 전체</strong>를 만듭니다. <span class='hl'>NestJS, Spring Boot, FastAPI</span>로 백엔드 서비스를 구축하고, PostgreSQL · MongoDB · Redis · Kafka · Qdrant로 데이터를 다루며, 이 모두를 돌리는 <strong>쿠버네티스 인프라</strong>까지 직접 운영합니다. <span class='hl'>근거 기반 AI 검색</span>, WebSocket과 WebRTC를 이용한 실시간 통신, 그리고 프로젝트를 실제로 운영 가능한 서비스로 만들어 주는 모니터링 · 알림 · 백업 검증이 제 작업 범위입니다.",
+      uz: "Men <strong>butun tizim</strong> quraman — faqat interfeys emas. Backend xizmatlari <span class='hl'>NestJS, Spring Boot va FastAPI</span> da, ma'lumotlar PostgreSQL, MongoDB, Redis, Kafka va Qdrant da, va ularni ishlab turishini ta'minlaydigan <strong>Kubernetes infratuzilmasi</strong>. Ishlarim orasida <span class='hl'>dalilga asoslangan AI qidiruv</span>, WebSocket va WebRTC orqali realtime aloqa, hamda loyihani haqiqatan boshqarish mumkin tizimga aylantiradigan monitoring, ogohlantirish va zaxira tekshiruvi bor."
+    },
+    ctaPrimary:   { en: "View Projects",    ko: "프로젝트 보기",    uz: "Loyihalarni ko'rish" },
+    ctaSecondary: { en: "Contact Me",       ko: "연락하기",        uz: "Bog'lanish" },
+    ctaResume:    { en: "Download Resume",  ko: "이력서 다운로드",  uz: "Rezyumeni yuklab olish" },
+    photoBadge:   { en: "Building in production", ko: "프로덕션 운영 중", uz: "Production'da ishlayapman" },
+    photoHint:    { en: "add your photo",   ko: "사진을 추가하세요", uz: "rasmingizni qo'ying" },
+    stats: [
+      { value: "2",  label: { en: "Live production systems",   ko: "운영 중인 프로덕션 시스템", uz: "Live production tizim" } },
+      { value: "6",  label: { en: "Services shipped",          ko: "배포한 서비스",           uz: "Ishga tushirilgan xizmat" } },
+      { value: "3",  label: { en: "Backend languages",         ko: "백엔드 언어",             uz: "Backend tili" } },
+      { value: "2",  label: { en: "Self-managed k3s clusters", ko: "직접 운영하는 k3s 클러스터", uz: "O'zim boshqargan k3s klaster" } }
+    ]
+  },
+
+  /* ── ABOUT ── */
+  about: {
+    eyebrow: { en: "About", ko: "소개", uz: "Haqimda" },
+    title:   { en: "Systems, end to end", ko: "처음부터 끝까지, 시스템 전체", uz: "Tizimlar, boshidan oxirigacha" },
+    paragraphs: [
+      { en: "I work across the whole path a feature travels: the React and Next.js surface a user touches, the NestJS, Spring Boot and FastAPI services behind it, the PostgreSQL and MongoDB stores underneath, and the Kubernetes cluster it all runs on.",
+        ko: "하나의 기능이 지나가는 경로 전체를 다룹니다. 사용자가 마주하는 React · Next.js 화면, 그 뒤의 NestJS · Spring Boot · FastAPI 서비스, 그 아래의 PostgreSQL · MongoDB 저장소, 그리고 이 모두가 돌아가는 쿠버네티스 클러스터까지입니다.",
+        uz: "Men funksiya bosib o'tadigan butun yo'lni qamrayman: foydalanuvchi ko'radigan React va Next.js qatlami, uning ortidagi NestJS, Spring Boot va FastAPI xizmatlari, ostidagi PostgreSQL va MongoDB omborlari, va bularning barchasi ishlaydigan Kubernetes klasteri." },
+      { en: "Most of what I have learned came from taking two products all the way to a public domain and keeping them there — <strong>HR Copilot AI</strong> and <strong>Motobay</strong>. That means writing the service, containerising it, wiring CI/CD, provisioning TLS, and then answering the harder question: how do I know it is still working?",
+        ko: "제가 배운 것의 대부분은 두 제품을 실제 도메인까지 올리고 계속 운영하면서 얻었습니다 — <strong>HR Copilot AI</strong>와 <strong>Motobay</strong>입니다. 서비스를 작성하고, 컨테이너로 만들고, CI/CD를 연결하고, TLS를 발급하는 일, 그리고 더 어려운 질문에 답하는 일까지 포함됩니다. 지금도 정상 동작한다는 것을 나는 어떻게 아는가?",
+        uz: "Bilganlarimning ko'pi ikkita mahsulotni ochiq domenga chiqarib, o'sha yerda ushlab turishdan keldi — <strong>HR Copilot AI</strong> va <strong>Motobay</strong>. Bu xizmatni yozish, konteynerlash, CI/CD ulash, TLS sozlash va keyin qiyinroq savolga javob berishni anglatadi: u hali ham ishlayotganini qayerdan bilaman?" },
+      { en: "On the AI side I am less interested in a model that sounds confident than in one that can <strong>show its work</strong>. HR Copilot's matching returns the passage in a resume that backs each requirement, with the page it came from, so a recruiter can check it rather than trust it.",
+        ko: "AI 쪽에서는 자신 있게 말하는 모델보다 <strong>근거를 보여 주는</strong> 모델에 관심이 있습니다. HR Copilot의 매칭은 각 요구사항을 뒷받침하는 이력서 구절과 해당 페이지를 함께 돌려주기 때문에, 채용 담당자가 믿는 대신 직접 확인할 수 있습니다.",
+        uz: "AI tomonida meni ishonch bilan gapiradigan model emas, balki <strong>ishini ko'rsata oladigan</strong> model qiziqtiradi. HR Copilot'ning moslashtiruvi har bir talabni tasdiqlovchi rezyume parchasini, u qaysi sahifadan olinganini qaytaradi — shunda rekruter ishonish o'rniga tekshira oladi." },
+      { en: "I am looking for engineering work where backend architecture, production infrastructure and AI integration sit in the same role rather than in three different teams.",
+        ko: "백엔드 아키텍처, 프로덕션 인프라, AI 통합이 세 개의 다른 팀이 아니라 하나의 역할 안에 있는 엔지니어링 업무를 찾고 있습니다.",
+        uz: "Backend arxitekturasi, production infratuzilmasi va AI integratsiyasi uch xil jamoada emas, bitta rolda jamlangan muhandislik ishini qidiryapman." }
+    ],
+    cards: [
+      { icon: "layers", tone: "blue",
+        title: { en: "End-to-end ownership", ko: "엔드투엔드 책임", uz: "Boshidan oxirigacha mas'uliyat" },
+        desc:  { en: "Frontend, services, database, container, cluster and the pipeline that ships them.", ko: "프런트엔드, 서비스, 데이터베이스, 컨테이너, 클러스터, 그리고 이를 배포하는 파이프라인까지.", uz: "Frontend, xizmatlar, baza, konteyner, klaster va ularni yetkazadigan pipeline." } },
+      { icon: "server", tone: "green",
+        title: { en: "Production infrastructure", ko: "프로덕션 인프라", uz: "Production infratuzilma" },
+        desc:  { en: "Self-managed k3s with Helm, Traefik, cert-manager and verified restores.", ko: "Helm · Traefik · cert-manager와 검증된 복구 절차를 갖춘 직접 운영 k3s.", uz: "Helm, Traefik, cert-manager va tekshirilgan tiklash bilan o'zim boshqargan k3s." } },
+      { icon: "sparkles", tone: "violet",
+        title: { en: "Evidence-grounded AI", ko: "근거 기반 AI", uz: "Dalilga asoslangan AI" },
+        desc:  { en: "RAG over Qdrant with citations back to the source page, not unsourced claims.", ko: "출처 없는 주장 대신 원문 페이지까지 인용하는 Qdrant 기반 RAG.", uz: "Qdrant ustida RAG — manba sahifasiga havola bilan, asossiz da'volarsiz." } },
+      { icon: "network", tone: "slate",
+        title: { en: "Distributed backends", ko: "분산 백엔드", uz: "Taqsimlangan backend" },
+        desc:  { en: "Kafka and BullMQ between services; Redis Pub/Sub so replicas can scale safely.", ko: "서비스 간 Kafka와 BullMQ, 레플리카를 안전하게 늘리기 위한 Redis Pub/Sub.", uz: "Xizmatlar orasida Kafka va BullMQ; replikalar xavfsiz kengayishi uchun Redis Pub/Sub." } }
+    ]
+  },
+
+  /* ── TECH STACK ── */
+  skills: {
+    eyebrow: { en: "Tech Stack", ko: "기술 스택", uz: "Texnologiyalar" },
+    title:   { en: "What I build with", ko: "제가 사용하는 기술", uz: "Nima bilan quraman" },
+    lede:    { en: "Grouped by where it sits in a system. The highlighted items are the ones I reach for first and have run in production.",
+               ko: "시스템에서 차지하는 위치에 따라 묶었습니다. 강조된 항목은 가장 먼저 선택하며 실제 프로덕션에서 운영해 본 기술입니다.",
+               uz: "Tizimdagi o'rniga qarab guruhlangan. Ajratib ko'rsatilganlari — birinchi navbatda tanlaydiganlarim va production'da ishlatganlarim." },
+    groups: [
+      { icon: "monitor", tone: "blue", title: { en: "Frontend", ko: "프런트엔드", uz: "Frontend" },
+        key: ["React", "Next.js", "TypeScript"], rest: ["JavaScript", "Tailwind CSS", "Apollo Client", "MUI", "SCSS"] },
+      { icon: "server", tone: "green", title: { en: "Backend & APIs", ko: "백엔드 및 API", uz: "Backend va API" },
+        key: ["Node.js", "NestJS", "Spring Boot", "FastAPI"], rest: ["Java", "Python", "Express", "GraphQL", "REST", "JWT", "Prisma"] },
+      { icon: "database", tone: "blue", title: { en: "Data", ko: "데이터", uz: "Ma'lumotlar" },
+        key: ["PostgreSQL", "MongoDB", "Redis", "Kafka"], rest: ["Qdrant", "Prisma ORM", "Mongoose"] },
+      { icon: "sparkles", tone: "violet", title: { en: "AI & Retrieval", ko: "AI 및 검색", uz: "AI va qidiruv" },
+        key: ["Gemini", "RAG", "Qdrant"], rest: ["Embeddings", "PyTorch reranking", "Vector search", "Document parsing"], ai: true },
+      { icon: "cloud", tone: "blue", title: { en: "Cloud & DevOps", ko: "클라우드 및 DevOps", uz: "Bulut va DevOps" },
+        key: ["Docker", "Kubernetes", "k3s", "Helm"], rest: ["Traefik", "cert-manager", "GitHub Actions", "GHCR", "Cloudflare R2"] },
+      { icon: "activity", tone: "green", title: { en: "Realtime & Observability", ko: "실시간 및 관측성", uz: "Realtime va kuzatuv" },
+        key: ["Prometheus", "Grafana", "WebRTC"], rest: ["Alertmanager", "Blackbox exporter", "Socket.IO", "WebSocket", "BullMQ", "coturn"] }
+    ]
+  },
+
+  /* ── ENGINEERING JOURNEY ── */
+  journey: {
+    eyebrow: { en: "Engineering Journey", ko: "엔지니어링 여정", uz: "Muhandislik yo'li" },
+    title:   { en: "How I got here", ko: "여기까지 온 과정", uz: "Bu yerga qanday keldim" },
+    lede:    { en: "Structured around capability rather than job titles — each stage is anchored to the project where I actually built it.",
+               ko: "직함이 아니라 역량을 기준으로 정리했습니다. 각 단계는 실제로 그것을 만든 프로젝트에 연결되어 있습니다.",
+               uz: "Lavozim nomlari emas, ko'nikma bo'yicha tuzilgan — har bosqich uni amalda qurgan loyihamga bog'langan." },
+    items: [
+      {
+        badge: { en: "Current focus", ko: "현재 집중 분야", uz: "Hozirgi yo'nalish" }, tone: "violet",
+        anchor: { en: "HR Copilot AI", ko: "HR Copilot AI", uz: "HR Copilot AI" },
+        role:    { en: "AI-Integrated Product Engineering", ko: "AI 통합 제품 엔지니어링", uz: "AI integratsiyalangan mahsulot muhandisligi" },
+        context: { en: "Self-directed · hrcopilot.cloud", ko: "개인 프로젝트 · hrcopilot.cloud", uz: "Mustaqil · hrcopilot.cloud" },
+        tag:     { en: "AI / RAG", ko: "AI / RAG", uz: "AI / RAG" },
+        summary: { en: "Building a recruiting platform where every AI claim is <strong>traceable to a source passage</strong>, rather than a score with no explanation.",
+                   ko: "설명 없는 점수가 아니라, 모든 AI 판단을 <strong>원문 구절까지 추적할 수 있는</strong> 채용 플랫폼을 만들고 있습니다.",
+                   uz: "Har bir AI xulosasi <strong>manba parchasiga bog'lanadigan</strong> rekruting platformasini qurish — izohsiz ball emas." },
+        bullets: [
+          { en: "Python FastAPI service that parses PDF/DOCX resumes, chunks them section-aware, embeds with PyTorch and indexes into Qdrant.",
+            ko: "PDF/DOCX 이력서를 파싱하고 섹션 단위로 청킹한 뒤 PyTorch로 임베딩해 Qdrant에 색인하는 Python FastAPI 서비스.",
+            uz: "PDF/DOCX rezyumelarni tahlil qiladigan, bo'limga qarab bo'laklaydigan, PyTorch bilan embedding qiladigan va Qdrant'ga indekslaydigan Python FastAPI xizmati." },
+          { en: "Requirement matrix and evidence confidence surfaced in the UI: what matches, what is missing, what is unclear.",
+            ko: "요구사항 매트릭스와 근거 신뢰도를 UI에 그대로 노출: 무엇이 맞고, 무엇이 없고, 무엇이 불분명한지.",
+            uz: "Talablar matritsasi va dalil ishonchliligi UI'da ko'rsatilgan: nima mos, nima yetishmaydi, nima noaniq." },
+          { en: "Gemini used for grounded explanation only — the evidence is retrieved before the model is asked anything.",
+            ko: "Gemini는 근거에 기반한 설명 생성에만 사용 — 모델에 질문하기 전에 근거를 먼저 검색합니다.",
+            uz: "Gemini faqat asoslangan izoh uchun — model so'ralishidan oldin dalil topiladi." },
+          { en: "Internal AI job match plus external job search against Greenhouse, Lever and Ashby.",
+            ko: "내부 AI 채용 매칭과 Greenhouse · Lever · Ashby 대상 외부 채용 검색.",
+            uz: "Ichki AI job match va Greenhouse, Lever, Ashby bo'yicha tashqi vakansiya qidiruvi." }
+        ]
+      },
+      {
+        badge: { en: "Production", ko: "프로덕션", uz: "Production" }, tone: "green",
+        anchor: { en: "hrcopilot.cloud · motobay.kr", ko: "hrcopilot.cloud · motobay.kr", uz: "hrcopilot.cloud · motobay.kr" },
+        role:    { en: "Production & Cloud Operations", ko: "프로덕션 및 클라우드 운영", uz: "Production va bulut operatsiyalari" },
+        context: { en: "Self-managed k3s clusters", ko: "직접 운영하는 k3s 클러스터", uz: "O'zim boshqargan k3s klasterlari" },
+        tag:     { en: "DevOps", ko: "DevOps", uz: "DevOps" },
+        summary: { en: "Taking both platforms from a local container to a <strong>public TLS domain</strong> and keeping them observable.",
+                   ko: "두 플랫폼을 로컬 컨테이너에서 <strong>공개 TLS 도메인</strong>까지 올리고, 관측 가능한 상태로 유지합니다.",
+                   uz: "Ikkala platformani lokal konteynerdan <strong>ochiq TLS domeniga</strong> chiqarish va kuzatiladigan holda ushlab turish." },
+        bullets: [
+          { en: "Helm charts onto single-node k3s, Traefik ingress, cert-manager issuing and renewing Let's Encrypt certificates.",
+            ko: "단일 노드 k3s에 Helm 차트 배포, Traefik 인그레스, cert-manager를 통한 Let's Encrypt 인증서 발급 및 갱신.",
+            uz: "Bir tugunli k3s'ga Helm chartlar, Traefik ingress, Let's Encrypt sertifikatlarini beruvchi va yangilovchi cert-manager." },
+          { en: "GitHub Actions builds linux/amd64 images tagged by commit SHA, pushes to GHCR, rolls out and verifies health before finishing.",
+            ko: "GitHub Actions가 커밋 SHA로 태그된 linux/amd64 이미지를 빌드해 GHCR에 푸시하고, 롤아웃 후 헬스 체크까지 확인합니다.",
+            uz: "GitHub Actions commit SHA bilan teglangan linux/amd64 image quradi, GHCR'ga yuboradi, rollout qiladi va tugashdan oldin sog'liqni tekshiradi." },
+          { en: "Prometheus, Grafana and Alertmanager with blackbox uptime probes and Postgres, Redis and Kafka exporters.",
+            ko: "블랙박스 업타임 프로브와 Postgres · Redis · Kafka 익스포터를 포함한 Prometheus · Grafana · Alertmanager 구성.",
+            uz: "Prometheus, Grafana va Alertmanager — blackbox uptime probelari va Postgres, Redis, Kafka eksportyorlari bilan." },
+          { en: "Nightly database backups to a private Cloudflare R2 bucket, with a restore job that proves the dump is usable.",
+            ko: "비공개 Cloudflare R2 버킷으로의 야간 데이터베이스 백업과, 덤프가 실제로 복구 가능함을 증명하는 복구 잡.",
+            uz: "Har kecha bazani yopiq Cloudflare R2 bucket'iga zaxiralash va dump ishlashini isbotlovchi restore job." },
+          { en: "CI deploys as an unprivileged ServiceAccount that cannot read Kubernetes Secrets — verified by attempting it.",
+            ko: "CI는 쿠버네티스 Secret을 읽을 수 없는 최소 권한 ServiceAccount로 배포합니다 — 실제로 시도해 확인했습니다.",
+            uz: "CI Kubernetes Secret'larini o'qiy olmaydigan cheklangan ServiceAccount sifatida deploy qiladi — urinib ko'rib tasdiqlangan." }
+        ]
+      },
+      {
+        badge: { en: "Core", ko: "핵심 역량", uz: "Asos" }, tone: "blue",
+        anchor: { en: "Motobay · HR Copilot AI", ko: "Motobay · HR Copilot AI", uz: "Motobay · HR Copilot AI" },
+        role:    { en: "Distributed Backend Architecture", ko: "분산 백엔드 아키텍처", uz: "Taqsimlangan backend arxitekturasi" },
+        context: { en: "NestJS · Spring Boot · FastAPI", ko: "NestJS · Spring Boot · FastAPI", uz: "NestJS · Spring Boot · FastAPI" },
+        tag:     { en: "Backend", ko: "백엔드", uz: "Backend" },
+        summary: { en: "Splitting a product into services that can be deployed, scaled and reasoned about <strong>independently</strong>.",
+                   ko: "제품을 <strong>독립적으로</strong> 배포하고 확장하고 이해할 수 있는 서비스 단위로 나눕니다.",
+                   uz: "Mahsulotni <strong>mustaqil</strong> deploy qilinadigan, kengaytiriladigan va tushuniladigan xizmatlarga bo'lish." },
+        bullets: [
+          { en: "Separate Java Spring Boot services for payments and notifications, decoupled from the NestJS core over Kafka.",
+            ko: "결제와 알림을 담당하는 별도의 Java Spring Boot 서비스를 Kafka로 NestJS 코어와 분리.",
+            uz: "To'lov va bildirishnomalar uchun alohida Java Spring Boot xizmatlari, NestJS yadrosidan Kafka orqali ajratilgan." },
+          { en: "BullMQ on Redis for background work — document ingestion, matching runs and outbound notifications.",
+            ko: "문서 수집, 매칭 실행, 외부 알림 등 백그라운드 작업을 위한 Redis 기반 BullMQ.",
+            uz: "Fon ishlari uchun Redis ustida BullMQ — hujjat qabul qilish, moslashtirish va chiquvchi bildirishnomalar." },
+          { en: "Redis Pub/Sub fan-out so a WebSocket message reaches a user connected to a different API replica.",
+            ko: "다른 API 레플리카에 연결된 사용자에게도 WebSocket 메시지가 도달하도록 Redis Pub/Sub 팬아웃 적용.",
+            uz: "Redis Pub/Sub fan-out — WebSocket xabari boshqa API replikasiga ulangan foydalanuvchiga ham yetadi." },
+          { en: "Store-of-record kept in the database and object storage, so no pod owns user data and any replica can serve any request.",
+            ko: "원본 데이터는 데이터베이스와 오브젝트 스토리지에 두어, 어떤 파드도 사용자 데이터를 소유하지 않고 어느 레플리카든 요청을 처리할 수 있습니다.",
+            uz: "Asosiy ma'lumot bazada va obyekt xotirasida saqlanadi — hech bir pod foydalanuvchi ma'lumotiga egalik qilmaydi." }
+        ]
+      },
+      {
+        badge: { en: "Foundation", ko: "기초", uz: "Poydevor" }, tone: "muted",
+        anchor: { en: "Burak · earlier work", ko: "Burak · 이전 작업", uz: "Burak · oldingi ishlar" },
+        role:    { en: "Full-Stack Web Development", ko: "풀스택 웹 개발", uz: "Full-stack veb dasturlash" },
+        context: { en: "Node.js · Express · React · MongoDB", ko: "Node.js · Express · React · MongoDB", uz: "Node.js · Express · React · MongoDB" },
+        tag:     { en: "Full-stack", ko: "풀스택", uz: "Full-stack" },
+        summary: { en: "Where the fundamentals came from: routing, sessions, schema design, file uploads and server-rendered views.",
+                   ko: "기본기가 만들어진 시기입니다: 라우팅, 세션, 스키마 설계, 파일 업로드, 서버 렌더링 뷰.",
+                   uz: "Asoslar shu yerdan: routing, sessiyalar, sxema dizayni, fayl yuklash va serverda render qilinadigan sahifalar." },
+        bullets: [
+          { en: "Server-rendered Express applications with EJS, MongoDB schemas and authentication flows.",
+            ko: "EJS 기반 서버 렌더링 Express 애플리케이션, MongoDB 스키마, 인증 플로우 구현.",
+            uz: "EJS bilan serverda render qilinadigan Express ilovalari, MongoDB sxemalari va autentifikatsiya oqimlari." },
+          { en: "React and TypeScript single-page frontends against REST and GraphQL APIs.",
+            ko: "REST 및 GraphQL API를 사용하는 React · TypeScript 단일 페이지 프런트엔드.",
+            uz: "REST va GraphQL API'lariga ulangan React va TypeScript SPA frontendlari." },
+          { en: "Moving from monolithic apps to typed, modular services was the step that led to everything above.",
+            ko: "모놀리식 애플리케이션에서 타입이 있는 모듈형 서비스로 옮겨간 것이 위의 모든 단계로 이어졌습니다.",
+            uz: "Monolit ilovalardan tipli, modulli xizmatlarga o'tish yuqoridagilarning barchasiga olib kelgan qadam bo'ldi." }
+        ]
+      }
+    ]
+  }
+};
+</script>
+
+<script>
+Object.assign(DATA, {
+
+  /* ── PROJECTS ── */
+  projects: {
+    eyebrow: { en: "Projects", ko: "프로젝트", uz: "Loyihalar" },
+    title:   { en: "Selected work", ko: "선별한 작업", uz: "Tanlangan ishlar" },
+    lede:    { en: "Two production platforms and the app that taught me the fundamentals. Expand any card for the full case study.",
+               ko: "운영 중인 두 개의 플랫폼과 기본기를 익힌 애플리케이션입니다. 각 카드를 펼치면 전체 케이스 스터디를 볼 수 있습니다.",
+               uz: "Ikkita production platforma va menga asoslarni o'rgatgan ilova. To'liq case study uchun kartani oching." },
+    labels: {
+      visit:   { en: "Visit project",  ko: "프로젝트 보기",   uz: "Loyihaga o'tish" },
+      code:    { en: "Source",         ko: "소스 코드",      uz: "Kod" },
+      priv:    { en: "Private repo",   ko: "비공개 저장소",   uz: "Yopiq repo" },
+      why:     { en: "Why these technologies", ko: "왜 이 기술을 선택했는가", uz: "Nega aynan shu texnologiyalar" },
+      case:    { en: "Read the case study",    ko: "케이스 스터디 읽기",     uz: "Case study'ni o'qish" },
+      problem: { en: "Problem",        ko: "문제",          uz: "Muammo" },
+      solution:{ en: "Solution",       ko: "해결 방법",      uz: "Yechim" },
+      arch:    { en: "Architecture",   ko: "아키텍처",       uz: "Arxitektura" },
+      role:    { en: "My role",        ko: "맡은 역할",      uz: "Mening rolim" },
+      chall:   { en: "Engineering challenges", ko: "기술적 난제", uz: "Muhandislik qiyinchiliklari" },
+      prod:    { en: "Production & deployment", ko: "프로덕션 및 배포", uz: "Production va deploy" },
+      outcome: { en: "Outcome",        ko: "결과",          uz: "Natija" },
+      noShots: { en: "screenshots not captured yet", ko: "스크린샷 준비 중", uz: "skrinshotlar hali olinmagan" },
+      addShots:{ en: "drop images into assets/ and list them below", ko: "assets/ 에 이미지를 넣고 아래에 추가하세요", uz: "rasmlarni assets/ ga qo'ying va quyida ro'yxatlang" }
+    },
+    items: [
+      {
+        id: "hrcopilot",
+        featured: true, wide: true,
+        badge:  { en: "AI Platform · Full-stack", ko: "AI 플랫폼 · 풀스택", uz: "AI platforma · Full-stack" },
+        star:   { en: "Featured", ko: "대표 프로젝트", uz: "Asosiy" },
+        title:  "HR Copilot AI",
+        url:    "https://hrcopilot.cloud",
+        repo:   "https://github.com/shukhratbekalijonov5-oss/hr-copilot-ai",
+        overview: {
+          en: "An AI-powered recruiting and candidate intelligence platform with separate HR and candidate workspaces. Its core is <strong>evidence-based matching</strong>: instead of returning an opaque score, it shows the requirement matrix behind a match and the exact resume passage — with its page number — that supports each line.",
+          ko: "HR용 워크스페이스와 지원자용 워크스페이스를 분리한 AI 기반 채용 · 지원자 분석 플랫폼입니다. 핵심은 <strong>근거 기반 매칭</strong>입니다. 알 수 없는 점수를 돌려주는 대신, 매칭 뒤의 요구사항 매트릭스와 각 항목을 뒷받침하는 이력서 구절을 페이지 번호와 함께 보여 줍니다.",
+          uz: "HR va nomzod uchun alohida ish maydonlariga ega, AI asosidagi rekruting va nomzod tahlili platformasi. Yadrosi — <strong>dalilga asoslangan moslashtirish</strong>: tushunarsiz ball o'rniga u moslik ortidagi talablar matritsasini va har bir qatorni tasdiqlovchi aniq rezyume parchasini, sahifa raqami bilan ko'rsatadi."
+        },
+        highlights: [
+          { en: "Advanced AI Match with a requirement matrix, eligibility rules, evidence confidence and a full score breakdown.",
+            ko: "요구사항 매트릭스, 자격 조건, 근거 신뢰도, 상세 점수 분해를 제공하는 Advanced AI Match.",
+            uz: "Talablar matritsasi, muvofiqlik qoidalari, dalil ishonchliligi va to'liq ball taqsimoti bilan Advanced AI Match." },
+          { en: "Resume and document ingestion — PDF/DOCX parsing, section-aware chunking, PyTorch embeddings indexed into Qdrant.",
+            ko: "이력서 및 문서 수집 — PDF/DOCX 파싱, 섹션 단위 청킹, PyTorch 임베딩의 Qdrant 색인.",
+            uz: "Rezyume va hujjat qabuli — PDF/DOCX tahlili, bo'limga qarab bo'laklash, Qdrant'ga indekslanadigan PyTorch embeddinglari." },
+          { en: "Internal AI job match plus external search across Greenhouse, Lever and Ashby.",
+            ko: "내부 AI 채용 매칭과 Greenhouse · Lever · Ashby 통합 외부 검색.",
+            uz: "Ichki AI job match va Greenhouse, Lever, Ashby bo'ylab tashqi qidiruv." },
+          { en: "Five services in production: Next.js, NestJS, FastAPI and two Java Spring Boot services for payments and notifications.",
+            ko: "프로덕션에서 동작하는 다섯 개 서비스: Next.js, NestJS, FastAPI, 그리고 결제와 알림용 Java Spring Boot 서비스 둘.",
+            uz: "Production'da beshta xizmat: Next.js, NestJS, FastAPI va to'lov hamda bildirishnoma uchun ikkita Java Spring Boot xizmati." },
+          { en: "Runs on self-managed k3s with Helm, Traefik, cert-manager, Prometheus/Grafana and verified R2 backups.",
+            ko: "Helm · Traefik · cert-manager · Prometheus/Grafana와 검증된 R2 백업을 갖춘 직접 운영 k3s에서 동작합니다.",
+            uz: "Helm, Traefik, cert-manager, Prometheus/Grafana va tekshirilgan R2 zaxiralari bilan o'zim boshqargan k3s'da ishlaydi." }
+        ],
+        tags: { key: ["Next.js", "NestJS", "FastAPI", "Spring Boot", "PostgreSQL", "Qdrant", "Kubernetes"],
+                rest: ["TypeScript", "Java", "Python", "Redis", "Kafka", "BullMQ", "Gemini", "Helm", "Cloudflare R2", "Prometheus"] },
+        /* Gallery order: overview → flagship AI feature → recruiter evidence views
+           → multilingual proof → light-theme parity.
+           `alt` is the descriptive text for screen readers; `caption` is the short
+           overlay label shown on hover. */
+        shots: [
+          { src: "assets/hr-copilot/hr-copilot-candidate-home-dark.png",
+            alt: "HR Copilot AI candidate dashboard in dark mode",
+            caption: { en: "Candidate workspace", ko: "지원자 워크스페이스", uz: "Nomzod ish maydoni" } },
+          { src: "assets/hr-copilot/hr-copilot-interview-questions.png",
+            alt: "HR Copilot recruiter candidate detail with interview questions and evidence",
+            caption: { en: "Evidence-grounded interview questions", ko: "근거 기반 면접 질문", uz: "Dalilga asoslangan intervyu savollari" } },
+          { src: "assets/hr-copilot/hr-copilot-ai-search.png",
+            alt: "HR Copilot AI candidate search with grounded citations",
+            caption: { en: "AI candidate search", ko: "AI 지원자 검색", uz: "AI nomzod qidiruvi" } }
+
+          /* ── PENDING: save these three from the chat, then uncomment ──
+             Files go in assets/hr-copilot/ . Order below is the intended final order:
+             AI Job Match sits at position 2, External Jobs KO at 5, Home Light at 6.
+
+          { src: "assets/hr-copilot/hr-copilot-ai-job-match.png",
+            alt: "HR Copilot AI internal job match with AI explanation",
+            caption: { en: "AI Job Match", ko: "AI 채용 매칭", uz: "AI Job Match" } },
+          { src: "assets/hr-copilot/hr-copilot-external-jobs-ko.png",
+            alt: "HR Copilot external jobs interface in Korean",
+            caption: { en: "External jobs — Korean locale", ko: "외부 채용공고 — 한국어", uz: "Tashqi vakansiyalar — koreyscha" } },
+          { src: "assets/hr-copilot/hr-copilot-candidate-home-light.png",
+            alt: "HR Copilot AI candidate dashboard in light mode",
+            caption: { en: "Light mode", ko: "라이트 모드", uz: "Yorug' rejim" } }
+          ──────────────────────────────────────────────────────────── */
+        ],
+        caseStudy: {
+          problem: { en: "Recruiting tools hand you a match percentage and no way to check it. A recruiter cannot tell whether an 82% came from real experience in the resume or from a keyword that happened to appear twice.",
+                     ko: "채용 도구는 매칭 퍼센트만 주고 확인할 방법은 주지 않습니다. 82%가 이력서의 실제 경험에서 나온 것인지, 우연히 두 번 등장한 키워드에서 나온 것인지 채용 담당자는 알 수 없습니다.",
+                     uz: "Rekruting vositalari sizga foiz beradi, lekin uni tekshirish imkonini bermaydi. Rekruter 82% rezyumedagi haqiqiy tajribadan kelganini yoki tasodifan ikki marta uchragan kalit so'zdan kelganini ayta olmaydi." },
+          solution: { en: "Retrieve first, explain second. Resume passages are indexed in Qdrant and searched per requirement; only then is Gemini asked to write the explanation, over evidence that has already been found. Every claim carries its source and page.",
+                      ko: "먼저 검색하고, 그다음 설명합니다. 이력서 구절을 Qdrant에 색인하고 요구사항별로 검색한 뒤, 이미 확보된 근거 위에서만 Gemini에 설명을 요청합니다. 모든 주장에는 출처와 페이지가 함께 붙습니다.",
+                      uz: "Avval topish, keyin izohlash. Rezyume parchalari Qdrant'da indekslanadi va har bir talab bo'yicha qidiriladi; faqat shundan keyin Gemini allaqachon topilgan dalil ustidan izoh yozadi. Har bir da'vo manbasi va sahifasi bilan keladi." },
+          architecture: { en: "Next.js frontend → NestJS core API → Python FastAPI AI service (parsing, embeddings, Qdrant search, PyTorch reranking). Java Spring Boot services handle payments and notifications, decoupled over Kafka. PostgreSQL via Prisma is the store of record; Redis backs BullMQ queues; Cloudflare R2 holds uploaded documents.",
+                          ko: "Next.js 프런트엔드 → NestJS 코어 API → Python FastAPI AI 서비스(파싱, 임베딩, Qdrant 검색, PyTorch 재순위화). 결제와 알림은 Kafka로 분리된 Java Spring Boot 서비스가 담당합니다. Prisma를 통한 PostgreSQL이 원본 저장소이고, Redis가 BullMQ 큐를 지원하며, 업로드된 문서는 Cloudflare R2에 저장됩니다.",
+                          uz: "Next.js frontend → NestJS asosiy API → Python FastAPI AI xizmati (tahlil, embedding, Qdrant qidiruv, PyTorch reranking). Java Spring Boot xizmatlari to'lov va bildirishnomalarni Kafka orqali ajratilgan holda bajaradi. Prisma orqali PostgreSQL — asosiy ombor; Redis BullMQ navbatlarini ta'minlaydi; yuklangan hujjatlar Cloudflare R2'da." },
+          role: { en: "Sole engineer. Product decisions, all five services, the Helm chart, the CI/CD pipeline, the monitoring stack and the backup/restore procedure.",
+                  ko: "단독 엔지니어. 제품 의사결정, 다섯 개 서비스 전부, Helm 차트, CI/CD 파이프라인, 모니터링 스택, 백업·복구 절차를 모두 담당했습니다.",
+                  uz: "Yagona muhandis. Mahsulot qarorlari, beshta xizmatning barchasi, Helm chart, CI/CD pipeline, monitoring to'plami va zaxiralash/tiklash tartibi." },
+          challenges: [
+            { en: "Chunking resumes so a retrieved passage is still meaningful — section-aware splitting rather than fixed windows.",
+              ko: "검색된 구절이 그 자체로 의미를 갖도록 이력서를 청킹 — 고정 윈도우가 아닌 섹션 단위 분할.",
+              uz: "Rezyumelarni topilgan parcha ma'noli qoladigan qilib bo'laklash — qat'iy oyna emas, bo'limga qarab bo'lish." },
+            { en: "Keeping the AI service honest: it returns passages and provenance, and is explicitly not allowed to make a hire/reject decision.",
+              ko: "AI 서비스를 정직하게 유지: 구절과 출처만 돌려주며, 채용·불합격 결정은 명시적으로 허용하지 않습니다.",
+              uz: "AI xizmatini halol saqlash: u parcha va manbani qaytaradi, ishga olish/rad etish qarorini qabul qilishga aniq ruxsat berilmagan." },
+            { en: "Coordinating four backend runtimes — Node, Python and two JVM services — behind one ingress and one release pipeline.",
+              ko: "Node, Python, 두 개의 JVM 서비스 등 네 가지 백엔드 런타임을 하나의 인그레스와 하나의 릴리스 파이프라인으로 조율.",
+              uz: "To'rtta backend runtime'ni — Node, Python va ikkita JVM xizmatini — bitta ingress va bitta relizga muvofiqlashtirish." }
+          ],
+          production: [
+            { en: "Single-node k3s, Helm-templated, Traefik ingress with cert-manager TLS for hrcopilot.cloud and api.hrcopilot.cloud.",
+              ko: "단일 노드 k3s, Helm 템플릿, hrcopilot.cloud 및 api.hrcopilot.cloud에 대한 cert-manager TLS를 갖춘 Traefik 인그레스.",
+              uz: "Bir tugunli k3s, Helm shablonlari, hrcopilot.cloud va api.hrcopilot.cloud uchun cert-manager TLS bilan Traefik ingress." },
+            { en: "Prometheus scrape targets and alert rules, Grafana dashboards, Alertmanager, blackbox probes, plus Postgres, Redis and Kafka exporters.",
+              ko: "Prometheus 스크레이프 타깃과 알림 규칙, Grafana 대시보드, Alertmanager, 블랙박스 프로브, Postgres · Redis · Kafka 익스포터.",
+              uz: "Prometheus scrape targetlari va alert qoidalari, Grafana panellari, Alertmanager, blackbox probelar, hamda Postgres, Redis va Kafka eksportyorlari." },
+            { en: "Security headers, CSP, HSTS and NetworkPolicies; images built by GitHub Actions and published to GHCR.",
+              ko: "보안 헤더, CSP, HSTS, NetworkPolicy 적용. 이미지는 GitHub Actions에서 빌드해 GHCR에 게시합니다.",
+              uz: "Xavfsizlik sarlavhalari, CSP, HSTS va NetworkPolicy'lar; image'lar GitHub Actions'da qurilib GHCR'ga chiqariladi." },
+            { en: "Nightly backups to a private R2 bucket with a restore-validation job that proves the dump can be loaded.",
+              ko: "비공개 R2 버킷으로의 야간 백업과, 덤프를 실제로 적재할 수 있음을 증명하는 복구 검증 잡.",
+              uz: "Yopiq R2 bucket'iga har kechalik zaxira va dump yuklanishini isbotlovchi restore-validation job." }
+          ],
+          outcome: { en: "The platform is live at hrcopilot.cloud. The most useful lesson was that the retrieval layer, not the model, decides whether an AI feature is trustworthy — once evidence had to be cited, a whole class of plausible-but-wrong output disappeared.",
+                     ko: "플랫폼은 hrcopilot.cloud에서 운영 중입니다. 가장 유용한 교훈은 AI 기능의 신뢰성을 결정하는 것이 모델이 아니라 검색 계층이라는 점이었습니다. 근거 인용을 강제한 순간, 그럴듯하지만 틀린 출력이 통째로 사라졌습니다.",
+                     uz: "Platforma hrcopilot.cloud'da ishlayapti. Eng foydali saboq: AI funksiyasining ishonchliligini model emas, qidiruv qatlami hal qiladi — dalil keltirish majburiy bo'lgach, ishonarli lekin noto'g'ri natijalarning butun bir turi yo'qoldi." }
+        },
+        why: [
+          { tech: "Qdrant", reason: { en: "Passage retrieval needs vector search with payload filtering per candidate and per vacancy — a relational index alone could not express it.", ko: "구절 검색에는 지원자별 · 공고별 페이로드 필터링이 가능한 벡터 검색이 필요했고, 관계형 인덱스만으로는 표현할 수 없었습니다.", uz: "Parcha qidiruvi nomzod va vakansiya bo'yicha payload filtri bilan vektor qidiruvni talab qiladi — faqat relatsion indeks buni ifodalay olmaydi." } },
+          { tech: "FastAPI", reason: { en: "The parsing, embedding and reranking libraries are Python-native; wrapping them in a separate service kept that dependency out of the Node core.", ko: "파싱 · 임베딩 · 재순위화 라이브러리가 모두 Python 기반이라, 별도 서비스로 감싸 그 의존성을 Node 코어 밖에 두었습니다.", uz: "Tahlil, embedding va reranking kutubxonalari Python'da; ularni alohida xizmatga o'rash bu bog'liqlikni Node yadrosidan tashqarida ushlab turdi." } },
+          { tech: "Kafka", reason: { en: "Payments and notifications must survive the core API restarting mid-flow, so they consume events instead of receiving synchronous calls.", ko: "결제와 알림은 코어 API가 처리 도중 재시작되어도 살아남아야 하므로, 동기 호출 대신 이벤트를 소비합니다.", uz: "To'lov va bildirishnomalar asosiy API o'rtada qayta ishga tushsa ham yashashi kerak, shuning uchun ular sinxron chaqiruv emas, hodisa iste'mol qiladi." } },
+          { tech: "Spring Boot", reason: { en: "Payment logic benefits from a strict type system and mature transaction handling; Java was the right tool for that boundary specifically.", ko: "결제 로직은 엄격한 타입 시스템과 성숙한 트랜잭션 처리의 이점을 받습니다. 그 경계에 한해서는 Java가 적합한 선택이었습니다.", uz: "To'lov mantig'i qat'iy tip tizimi va yetuk tranzaksiya boshqaruvidan foyda ko'radi; aynan shu chegara uchun Java to'g'ri tanlov edi." } },
+          { tech: "Kubernetes", reason: { en: "Five services with different runtimes need one uniform way to be deployed, restarted, probed and rolled back.", ko: "런타임이 서로 다른 다섯 서비스에는 배포 · 재시작 · 상태 확인 · 롤백을 위한 하나의 통일된 방식이 필요합니다.", uz: "Turli runtime'dagi beshta xizmat deploy, restart, probe va rollback uchun bitta yagona usulni talab qiladi." } }
+        ]
+      },
+
+      {
+        id: "motobay",
+        featured: false, wide: true,
+        badge: { en: "Marketplace · Realtime", ko: "마켓플레이스 · 실시간", uz: "Marketplace · Realtime" },
+        title: "Motobay",
+        url:   "https://motobay.kr",
+        repo:  "https://github.com/shukhratbekalijonov5-oss/motorbike",
+        overview: {
+          en: "A motorbike marketplace for users and dealers with <strong>realtime messaging and in-browser voice and video calling</strong>, deployed to a self-managed Kubernetes cluster with automated delivery, monitoring and backups.",
+          ko: "일반 사용자와 딜러를 위한 오토바이 마켓플레이스로, <strong>실시간 메시징과 브라우저 내 음성 · 영상 통화</strong>를 제공합니다. 자동화된 배포 · 모니터링 · 백업을 갖춘 직접 운영 쿠버네티스 클러스터에서 동작합니다.",
+          uz: "Foydalanuvchi va dilerlar uchun mototsikl marketplace'i — <strong>realtime xabar almashish va brauzerda ovozli/video qo'ng'iroq</strong> bilan, avtomatlashtirilgan yetkazish, monitoring va zaxiralash bilan o'zim boshqargan Kubernetes klasteriga joylashtirilgan."
+        },
+        highlights: [
+          { en: "Listings with images, search and filtering; dealer profiles, wishlists, reviews, reporting and moderation.",
+            ko: "이미지 · 검색 · 필터가 있는 매물 목록, 딜러 프로필, 위시리스트, 리뷰, 신고 및 관리 기능.",
+            uz: "Rasmli e'lonlar, qidiruv va filtr; diler profillari, sevimlilar, sharhlar, shikoyat va moderatsiya." },
+          { en: "Realtime messaging over a native WebSocket gateway with presence, typing indicators and delivered/read state.",
+            ko: "접속 상태 · 입력 중 표시 · 전달/읽음 상태를 지원하는 네이티브 WebSocket 게이트웨이 기반 실시간 메시징.",
+            uz: "Native WebSocket gateway orqali realtime xabar — onlayn holati, yozayotgani va yetkazildi/o'qildi belgilari bilan." },
+          { en: "WebRTC audio and video calls, P2P first with a self-hosted coturn TURN relay as fallback.",
+            ko: "WebRTC 음성 · 영상 통화. 우선 P2P로 연결하고, 실패 시 자체 호스팅 coturn TURN 릴레이로 폴백합니다.",
+            uz: "WebRTC ovozli va video qo'ng'iroq — avval P2P, zaxira sifatida o'zim joylashtirgan coturn TURN relay." },
+          { en: "Redis Pub/Sub fan-out across API replicas, so messages arrive even when sender and receiver are on different pods.",
+            ko: "API 레플리카 전반의 Redis Pub/Sub 팬아웃으로, 발신자와 수신자가 서로 다른 파드에 있어도 메시지가 도달합니다.",
+            uz: "API replikalari bo'ylab Redis Pub/Sub fan-out — jo'natuvchi va qabul qiluvchi turli podlarda bo'lsa ham xabar yetadi." },
+          { en: "Naver Maps with geocoding, plus traffic, gas and weather integrations on listing and dealer views.",
+            ko: "지오코딩을 포함한 네이버 지도, 그리고 매물 · 딜러 화면의 교통 · 주유 · 날씨 연동.",
+            uz: "Geokodlash bilan Naver Maps, hamda e'lon va diler sahifalarida trafik, yoqilg'i va ob-havo integratsiyalari." }
+        ],
+        tags: { key: ["Next.js", "NestJS", "GraphQL", "MongoDB", "WebRTC", "Kubernetes"],
+                rest: ["React", "Apollo Client", "Redis", "BullMQ", "WebSocket", "coturn", "Docker", "Traefik", "Prometheus", "Grafana", "Cloudflare R2"] },
+        shots: [],
+        caseStudy: {
+          problem: { en: "A marketplace where buyers and dealers negotiate needs the conversation to happen inside the product. Bolting on a third-party chat widget would have put the most important interaction outside the system that owns the listing.",
+                     ko: "구매자와 딜러가 협상하는 마켓플레이스에서는 대화가 제품 안에서 일어나야 합니다. 외부 채팅 위젯을 붙이면 가장 중요한 상호작용이 매물을 소유한 시스템 바깥으로 나가 버립니다.",
+                     uz: "Xaridor va diler kelishadigan marketplace'da suhbat mahsulot ichida bo'lishi kerak. Uchinchi tomon chat vidjetini ulash eng muhim muloqotni e'longa egalik qiluvchi tizimdan tashqariga chiqarardi." },
+          solution: { en: "A native WebSocket gateway inside the NestJS API carries messaging, presence and WebRTC signalling on one authenticated connection, so a call starts from the same thread as the conversation.",
+                      ko: "NestJS API 내부의 네이티브 WebSocket 게이트웨이가 메시징 · 접속 상태 · WebRTC 시그널링을 하나의 인증된 연결로 처리하므로, 통화가 대화와 같은 스레드에서 시작됩니다.",
+                      uz: "NestJS API ichidagi native WebSocket gateway xabar, onlayn holati va WebRTC signalizatsiyasini bitta autentifikatsiyalangan ulanishda olib boradi — qo'ng'iroq suhbatning o'zidan boshlanadi." },
+          architecture: { en: "Next.js frontend and a NestJS GraphQL API behind Traefik. MongoDB Atlas is the store of record; Redis holds only transient state — presence, socket registries, call keys — which is what makes running multiple API replicas safe. Images live in Cloudflare R2, so no pod owns user data.",
+                          ko: "Traefik 뒤의 Next.js 프런트엔드와 NestJS GraphQL API. MongoDB Atlas가 원본 저장소이고, Redis는 접속 상태 · 소켓 레지스트리 · 통화 키 같은 일시적 상태만 보관합니다. 이 분리 덕분에 API 레플리카를 여러 개 띄워도 안전합니다. 이미지는 Cloudflare R2에 있어 어떤 파드도 사용자 데이터를 소유하지 않습니다.",
+                          uz: "Traefik ortida Next.js frontend va NestJS GraphQL API. MongoDB Atlas — asosiy ombor; Redis faqat vaqtinchalik holatni saqlaydi — onlayn holati, soket registrlari, qo'ng'iroq kalitlari — aynan shu bir nechta API replikasini xavfsiz qiladi. Rasmlar Cloudflare R2'da, shuning uchun hech bir pod foydalanuvchi ma'lumotiga egalik qilmaydi." },
+          role: { en: "Sole engineer across frontend, backend and infrastructure — including the k3s cluster, the TURN relay and the CI/CD pipeline.",
+                  ko: "프런트엔드 · 백엔드 · 인프라 전반의 단독 엔지니어. k3s 클러스터, TURN 릴레이, CI/CD 파이프라인까지 포함합니다.",
+                  uz: "Frontend, backend va infratuzilma bo'ylab yagona muhandis — k3s klasteri, TURN relay va CI/CD pipeline ham shu jumlada." },
+          challenges: [
+            { en: "Duplicate delivery when replicas scale: each pod carries an instance ID and drops its own Redis echo.",
+              ko: "레플리카 증가 시 발생하는 중복 전달: 각 파드가 인스턴스 ID를 갖고 자신의 Redis 에코를 버립니다.",
+              uz: "Replikalar ko'payganda takroriy yetkazish: har bir pod instance ID tashiydi va o'z Redis exosini tashlab yuboradi." },
+            { en: "Calls failing behind restrictive NATs — solved with a self-hosted coturn relay reusing the cluster's Let's Encrypt certificate for TURNS on 5349.",
+              ko: "제한적인 NAT 뒤에서 통화가 실패하는 문제 — 클러스터의 Let's Encrypt 인증서를 5349 포트 TURNS에 재사용하는 자체 coturn 릴레이로 해결했습니다.",
+              uz: "Cheklovchi NAT ortida qo'ng'iroq ishlamasligi — 5349-portdagi TURNS uchun klasterning Let's Encrypt sertifikatini qayta ishlatuvchi o'z coturn relay'i bilan hal qilindi." },
+            { en: "Verifying relay actually worked rather than assuming it: forcing iceTransportPolicy 'relay' so the browser cannot gather host candidates at all, then confirming media flowed on a relay-to-relay pair.",
+              ko: "릴레이가 동작한다고 가정하지 않고 실제로 검증: iceTransportPolicy를 'relay'로 강제해 브라우저가 호스트 후보를 아예 수집하지 못하게 한 뒤, relay ↔ relay 쌍에서 미디어가 흐르는 것을 확인했습니다.",
+              uz: "Relay ishlashini taxmin qilmay tekshirish: iceTransportPolicy 'relay' majburlab, brauzer host kandidat yig'a olmaydigan holatda relay-relay juftlikda media oqqanini tasdiqlash." }
+          ],
+          production: [
+            { en: "Single-node k3s behind Traefik with cert-manager TLS; API runs 2–4 replicas under an autoscaling/v2 HPA driven by CPU.",
+              ko: "cert-manager TLS를 적용한 Traefik 뒤의 단일 노드 k3s. API는 CPU 기반 autoscaling/v2 HPA 아래 2~4개 레플리카로 동작합니다.",
+              uz: "cert-manager TLS bilan Traefik ortida bir tugunli k3s; API CPU bo'yicha autoscaling/v2 HPA ostida 2–4 replikada ishlaydi." },
+            { en: "GitHub Actions builds linux/amd64 images tagged by commit SHA — never 'latest' — pushes to GHCR, rolls out, verifies health and rolls back on failure.",
+              ko: "GitHub Actions가 커밋 SHA로 태그된 linux/amd64 이미지를 빌드하고 — 'latest'는 절대 쓰지 않습니다 — GHCR에 푸시한 뒤 롤아웃, 헬스 검증, 실패 시 롤백까지 수행합니다.",
+              uz: "GitHub Actions commit SHA bilan teglangan linux/amd64 image quradi — hech qachon 'latest' emas — GHCR'ga yuboradi, rollout qiladi, sog'liqni tekshiradi va xatoda rollback qiladi." },
+            { en: "Prometheus, Grafana, Alertmanager, node-exporter, kube-state-metrics and blackbox-exporter; daily mongodump to a private R2 bucket.",
+              ko: "Prometheus, Grafana, Alertmanager, node-exporter, kube-state-metrics, blackbox-exporter 구성. 비공개 R2 버킷으로 매일 mongodump를 수행합니다.",
+              uz: "Prometheus, Grafana, Alertmanager, node-exporter, kube-state-metrics va blackbox-exporter; har kunlik mongodump yopiq R2 bucket'iga." },
+            { en: "CI connects as an unprivileged deploy user scoped to one namespace, and cannot read Kubernetes Secrets — confirmed by attempting the read and getting Forbidden.",
+              ko: "CI는 하나의 네임스페이스로 제한된 최소 권한 배포 사용자로 접속하며 쿠버네티스 Secret을 읽을 수 없습니다 — 실제로 읽기를 시도해 Forbidden을 확인했습니다.",
+              uz: "CI bitta namespace bilan cheklangan huquqsiz deploy foydalanuvchi sifatida ulanadi va Kubernetes Secret'larini o'qiy olmaydi — o'qishga urinib Forbidden olish bilan tasdiqlangan." }
+          ],
+          outcome: { en: "Live at motobay.kr. During the most recent production audit all 20 Prometheus targets were up, TLS and the HTTP→HTTPS redirect verified, an authenticated WebSocket upgrade returned 101, and there were no pod restarts cluster-wide.",
+                     ko: "motobay.kr에서 운영 중입니다. 가장 최근 프로덕션 점검에서 Prometheus 타깃 20개가 모두 정상이었고, TLS와 HTTP→HTTPS 리다이렉트가 확인되었으며, 인증된 WebSocket 업그레이드가 101을 반환했고, 클러스터 전체에서 파드 재시작이 없었습니다.",
+                     uz: "motobay.kr'da ishlayapti. Oxirgi production auditda 20 ta Prometheus targetning barchasi ishlagan, TLS va HTTP→HTTPS yo'naltirish tasdiqlangan, autentifikatsiyalangan WebSocket upgrade 101 qaytargan va klaster bo'ylab pod restartlari bo'lmagan." }
+        },
+        why: [
+          { tech: "Native WebSocket", reason: { en: "Socket.IO's protocol overhead was unnecessary when the client is a browser I control; a raw gateway kept signalling and messaging on one connection.", ko: "클라이언트가 제가 제어하는 브라우저인 상황에서 Socket.IO의 프로토콜 오버헤드는 불필요했고, 순수 게이트웨이가 시그널링과 메시징을 한 연결에 유지해 주었습니다.", uz: "Klient men boshqaradigan brauzer bo'lgani uchun Socket.IO protokol yuki keraksiz edi; xom gateway signalizatsiya va xabarni bitta ulanishda saqladi." } },
+          { tech: "Redis Pub/Sub", reason: { en: "It is the smallest thing that lets a message cross pods without making Redis the store of record — losing it costs presence, not data.", ko: "Redis를 원본 저장소로 만들지 않으면서 메시지가 파드를 넘나들게 하는 가장 가벼운 방법입니다. 잃어도 잃는 것은 접속 상태이지 데이터가 아닙니다.", uz: "Bu Redis'ni asosiy omborga aylantirmasdan xabarni podlar orasidan o'tkazadigan eng kichik yechim — uni yo'qotish ma'lumotni emas, onlayn holatini yo'qotadi." } },
+          { tech: "coturn", reason: { en: "Corporate and mobile NATs block direct P2P often enough that a relay is not optional if calls are meant to work for everyone.", ko: "기업망과 모바일 NAT가 직접 P2P를 차단하는 경우가 충분히 잦아서, 모두에게 통화가 동작해야 한다면 릴레이는 선택이 아닙니다.", uz: "Korporativ va mobil NAT'lar to'g'ridan-to'g'ri P2P'ni yetarlicha tez-tez bloklaydi — qo'ng'iroq hamma uchun ishlashi kerak bo'lsa, relay ixtiyoriy emas." } },
+          { tech: "MongoDB Atlas", reason: { en: "Listings vary widely in shape between bike types and dealers, and a managed store of record kept persistence out of the cluster's failure domain.", ko: "매물은 차종과 딜러에 따라 구조가 크게 달라지며, 관리형 원본 저장소를 쓰면 영속성이 클러스터 장애 범위 밖에 남습니다.", uz: "E'lonlar mototsikl turlari va dilerlar orasida shakli bo'yicha juda farq qiladi, boshqariladigan ombor esa saqlashni klaster nosozlik doirasidan tashqarida ushlab turdi." } },
+          { tech: "HPA on CPU", reason: { en: "Traffic is bursty around listing activity; scaling on CPU against the pod request was measurable and predictable enough to trust.", ko: "트래픽이 매물 활동에 따라 급증하는데, 파드 리퀘스트 대비 CPU 기반 스케일링이 충분히 측정 가능하고 예측 가능했습니다.", uz: "Trafik e'lon faolligi atrofida to'lqinli; pod so'roviga nisbatan CPU bo'yicha kengayish o'lchanadigan va ishonchli darajada bashoratli edi." } }
+        ]
+      },
+
+      {
+        id: "burak",
+        featured: false, wide: false,
+        badge: { en: "Web application", ko: "웹 애플리케이션", uz: "Veb ilova" },
+        title: "Burak",
+        url:   null,
+        repo:  "https://github.com/shukhratbekalijonov5-oss/burak",
+        overview: {
+          en: "A restaurant web application — menu and product browsing, ordering, authentication and an admin surface — built as a server-rendered Express app with a separate React client.",
+          ko: "메뉴 및 상품 탐색, 주문, 인증, 관리자 화면을 갖춘 레스토랑 웹 애플리케이션입니다. 서버 렌더링 Express 앱과 별도의 React 클라이언트로 구성했습니다.",
+          uz: "Restoran veb ilovasi — menyu va mahsulotlarni ko'rish, buyurtma, autentifikatsiya va admin paneli — serverda render qilinadigan Express ilova va alohida React klient sifatida qurilgan."
+        },
+        highlights: [
+          { en: "Express and EJS server-rendered views with session-based authentication and file uploads.",
+            ko: "세션 기반 인증과 파일 업로드를 포함한 Express · EJS 서버 렌더링 뷰.",
+            uz: "Express va EJS serverda render qilinadigan sahifalar, sessiyaga asoslangan autentifikatsiya va fayl yuklash." },
+          { en: "MongoDB schemas for products, orders and members, with a separate React + TypeScript client.",
+            ko: "상품 · 주문 · 회원용 MongoDB 스키마와 별도의 React + TypeScript 클라이언트.",
+            uz: "Mahsulot, buyurtma va a'zolar uchun MongoDB sxemalari, alohida React + TypeScript klient bilan." },
+          { en: "Included here for breadth — it is where the fundamentals behind the larger platforms came from.",
+            ko: "폭을 보여 주기 위해 포함했습니다. 더 큰 플랫폼들의 기본기가 여기서 나왔습니다.",
+            uz: "Bu yerda kenglik uchun keltirilgan — kattaroq platformalar ortidagi asoslar shu yerdan kelgan." }
+        ],
+        tags: { key: ["Node.js", "Express", "MongoDB"], rest: ["EJS", "TypeScript", "React"] },
+        shots: [],
+        caseStudy: null,
+        why: [
+          { tech: "Express + EJS", reason: { en: "Server-rendered pages were the fastest route to a working product, and made the request lifecycle obvious while I was learning it.", ko: "서버 렌더링 페이지가 동작하는 제품까지 가는 가장 빠른 길이었고, 배우는 동안 요청 생명주기를 명확하게 보여 주었습니다.", uz: "Serverda render qilingan sahifalar ishlaydigan mahsulotga eng tez yo'l edi va o'rganayotganimda so'rov hayot sikli aniq ko'rinardi." } },
+          { tech: "MongoDB", reason: { en: "Menu items and orders changed shape often during development; a schemaless store removed migration friction at that stage.", ko: "개발 중 메뉴와 주문의 구조가 자주 바뀌었고, 스키마 없는 저장소가 그 단계의 마이그레이션 부담을 없애 주었습니다.", uz: "Menyu va buyurtmalar ishlab chiqish davomida shaklini tez-tez o'zgartirardi; sxemasiz ombor o'sha bosqichda migratsiya to'siqlarini olib tashladi." } }
+        ]
+      }
+    ]
+  },
+
+  /* ── PRODUCTION ENGINEERING ── */
+  production: {
+    eyebrow: { en: "Production Engineering", ko: "프로덕션 엔지니어링", uz: "Production muhandisligi" },
+    title:   { en: "Shipping it is half the work", ko: "배포까지가 절반의 일입니다", uz: "Uni ishga tushirish — ishning yarmi" },
+    lede:    { en: "Both platforms run on infrastructure I provisioned and operate. This is what that actually involves.",
+               ko: "두 플랫폼 모두 제가 직접 구축하고 운영하는 인프라 위에서 동작합니다. 실제로 어떤 일이 포함되는지 정리했습니다.",
+               uz: "Ikkala platforma ham men sozlagan va boshqaradigan infratuzilmada ishlaydi. Bu amalda nimani anglatishi quyida." },
+    groups: [
+      { icon: "cloud", tone: "blue", title: { en: "Kubernetes & delivery", ko: "쿠버네티스 및 배포", uz: "Kubernetes va yetkazish" },
+        items: [
+          { en: "Single-node k3s clusters, Helm-templated releases", ko: "단일 노드 k3s 클러스터, Helm 템플릿 릴리스", uz: "Bir tugunli k3s klasterlari, Helm shablonli relizlar" },
+          { en: "Traefik ingress, cert-manager Let's Encrypt TLS", ko: "Traefik 인그레스, cert-manager Let's Encrypt TLS", uz: "Traefik ingress, cert-manager Let's Encrypt TLS" },
+          { en: "GitHub Actions → GHCR, images tagged by commit SHA", ko: "GitHub Actions → GHCR, 커밋 SHA 태그 이미지", uz: "GitHub Actions → GHCR, commit SHA bilan teglangan image'lar" },
+          { en: "Rollout with health verification and guarded rollback", ko: "헬스 검증과 안전장치를 갖춘 롤아웃 및 롤백", uz: "Sog'liq tekshiruvi va himoyalangan rollback bilan rollout" },
+          { en: "HPA on CPU for the API tier where load is bursty", ko: "부하가 급증하는 API 계층의 CPU 기반 HPA", uz: "Yuk to'lqinli bo'lgan API qatlamida CPU bo'yicha HPA" }
+        ] },
+      { icon: "shield", tone: "violet", title: { en: "Security & networking", ko: "보안 및 네트워킹", uz: "Xavfsizlik va tarmoq" },
+        items: [
+          { en: "Security headers, CSP and HSTS at the edge", ko: "엣지에서의 보안 헤더, CSP, HSTS", uz: "Chekkada xavfsizlik sarlavhalari, CSP va HSTS" },
+          { en: "NetworkPolicies restricting pod-to-pod traffic", ko: "파드 간 트래픽을 제한하는 NetworkPolicy", uz: "Podlararo trafikni cheklovchi NetworkPolicy'lar" },
+          { en: "CI bound to a namespace-scoped ServiceAccount", ko: "네임스페이스로 제한된 ServiceAccount에 묶인 CI", uz: "Namespace bilan cheklangan ServiceAccount'ga bog'langan CI" },
+          { en: "Deploy credentials that cannot read cluster Secrets", ko: "클러스터 Secret을 읽을 수 없는 배포 자격 증명", uz: "Klaster Secret'larini o'qiy olmaydigan deploy hisob ma'lumotlari" },
+          { en: "TURNS over TLS reusing the cluster certificate", ko: "클러스터 인증서를 재사용하는 TLS 기반 TURNS", uz: "Klaster sertifikatini qayta ishlatuvchi TLS ustida TURNS" }
+        ] },
+      { icon: "activity", tone: "green", title: { en: "Observability & backups", ko: "관측성 및 백업", uz: "Kuzatuv va zaxiralash" },
+        items: [
+          { en: "Prometheus scrape targets and alerting rules", ko: "Prometheus 스크레이프 타깃과 알림 규칙", uz: "Prometheus scrape targetlari va alert qoidalari" },
+          { en: "Grafana dashboards, Alertmanager email routing", ko: "Grafana 대시보드, Alertmanager 이메일 라우팅", uz: "Grafana panellari, Alertmanager email yo'naltirishi" },
+          { en: "Blackbox uptime probes on public endpoints", ko: "공개 엔드포인트에 대한 블랙박스 업타임 프로브", uz: "Ochiq endpointlarda blackbox uptime probelari" },
+          { en: "Postgres, Redis and Kafka exporters", ko: "Postgres · Redis · Kafka 익스포터", uz: "Postgres, Redis va Kafka eksportyorlari" },
+          { en: "Nightly off-server backups to Cloudflare R2", ko: "Cloudflare R2로의 야간 서버 외부 백업", uz: "Har kechalik Cloudflare R2'ga server tashqarisiga zaxira" },
+          { en: "Restore-validation job proving the dump is usable", ko: "덤프가 사용 가능함을 증명하는 복구 검증 잡", uz: "Dump ishlashini isbotlovchi restore-validation job" }
+        ] }
+    ],
+    note: { en: "These are capabilities I have built and verified on my own clusters. I am not claiming an uptime SLA, autoscaling at scale, or 24/7 on-call coverage — those need a team and a track record I do not yet have.",
+            ko: "여기 적은 것들은 제 클러스터에서 직접 구축하고 검증한 역량입니다. 가동률 SLA, 대규모 오토스케일링, 24/7 온콜 대응을 주장하는 것은 아닙니다. 그것들은 아직 제가 갖지 못한 팀과 운영 이력을 필요로 합니다.",
+            uz: "Bular men o'z klasterlarimda qurgan va tekshirgan imkoniyatlar. Men uptime SLA, katta miqyosdagi avtoskeyling yoki 24/7 navbatchilikni da'vo qilmayapman — ular jamoa va menda hali yo'q tajriba tarixini talab qiladi." }
+  },
+
+  /* ── EDUCATION & LANGUAGES ── */
+  education: {
+    eyebrow: { en: "EDUCATION & LANGUAGES", ko: "학력 및 언어", uz: "TA'LIM VA TILLAR" },
+    title:   { en: "Education & Languages", ko: "학력 및 언어", uz: "Ta'lim va tillar" },
+    schools: [
+      { program: { en: "Agentic AI Development", ko: "에이전틱 AI 개발", uz: "Agentic AI Development" },
+        school:  { en: "Devex Academy · 8-Month Program", ko: "Devex 아카데미 · 8개월 과정", uz: "Devex Academy · 8 oylik dastur" },
+        years:   "2025 – 2026" },
+      { program: { en: "Bachelor's Degree", ko: "학사 학위", uz: "Bakalavr darajasi" },
+        school:  { en: "Youngsan University · Busan", ko: "영산대학교 · 부산", uz: "Youngsan universiteti · Busan" },
+        years:   "2022 – 2026" },
+      { program: { en: "Developing Education", ko: "개발 교육", uz: "Dasturlash ta'limi" },
+        school:  { en: "Onsite & Online — Full Stack & DevOps", ko: "오프라인 및 온라인 — 풀스택 & 데브옵스", uz: "Oflayn va onlayn — Full Stack & DevOps" },
+        years:   "2021 – 2023" }
+    ],
+    languages: [
+      { name: { en: "English", ko: "영어",       uz: "Ingliz tili" },  level: { en: "Fluent",         ko: "유창함",    uz: "Erkin" } },
+      { name: { en: "Korean",  ko: "한국어",     uz: "Koreys tili" },  level: { en: "Conversational", ko: "회화 가능", uz: "Suhbat darajasida" } },
+      { name: { en: "Russian", ko: "러시아어",   uz: "Rus tili" },     level: { en: "Conversational", ko: "회화 가능", uz: "Suhbat darajasida" } },
+      { name: { en: "Uzbek",   ko: "우즈베크어", uz: "O'zbek tili" },  level: { en: "Native",         ko: "모국어",    uz: "Ona tili" } }
+    ]
+  },
+
+  /* ── CONTACT ── */
+  contact: {
+    eyebrow: { en: "Contact", ko: "연락처", uz: "Aloqa" },
+    title:   { en: "Let's build something", ko: "함께 만들어 봅시다", uz: "Keling, birgalikda quramiz" },
+    sub:     { en: "Open to software engineering roles across backend, full-stack, DevOps and AI-enabled production systems. The fastest way to reach me is email.",
+               ko: "백엔드, 풀스택, DevOps, AI 기반 프로덕션 시스템 전반의 소프트웨어 엔지니어 포지션에 열려 있습니다. 이메일이 가장 빠른 연락 방법입니다.",
+               uz: "Backend, full-stack, DevOps va AI asosidagi production tizimlar bo'yicha dasturchi muhandis lavozimlariga ochiqman. Menga eng tez yo'l — email." },
+    labels: {
+      email:    { en: "Email",    ko: "이메일",     uz: "Email" },
+      github:   { en: "GitHub",   ko: "GitHub",    uz: "GitHub" },
+      linkedin: { en: "LinkedIn", ko: "LinkedIn",  uz: "LinkedIn" },
+      resume:   { en: "Resume",   ko: "이력서",     uz: "Rezyume" },
+      empty:    { en: "Not added yet", ko: "아직 등록되지 않음", uz: "Hali qo'shilmagan" }
+    },
+    status: { en: "Available for new opportunities", ko: "새로운 기회를 찾고 있습니다", uz: "Yangi imkoniyatlarga ochiq" }
+  },
+
+  footer: {
+    note: { en: "Hand-written HTML, CSS and vanilla JavaScript. No build step.",
+            ko: "직접 작성한 HTML, CSS, 바닐라 JavaScript. 빌드 단계 없음.",
+            uz: "Qo'lda yozilgan HTML, CSS va sof JavaScript. Build qadamisiz." }
+  }
+});
+</script>
+
+<style>
+</style>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     RENDER — turns DATA into the page. You rarely need to touch this.
+     ═══════════════════════════════════════════════════════════════════ -->
+<script>
+(function () {
+  "use strict";
+
+  /* ---------- i18n ---------- */
+  const state = { lang: localStorage.getItem("sa-lang") || "en" };
+  const t = (v) =>
+    v && typeof v === "object" && !Array.isArray(v) && "en" in v ? (v[state.lang] ?? v.en) : v;
+
+  const $  = (s) => document.querySelector(s);
+  const el = (id) => document.getElementById(id);
+
+  /* ---------- icons ---------- */
+  const P = {
+    layers:   '<path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/>',
+    server:   '<rect x="2" y="3" width="20" height="8" rx="2"/><rect x="2" y="13" width="20" height="8" rx="2"/><path d="M6 7h.01M6 17h.01"/>',
+    sparkles: '<path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><path d="m6.3 6.3 2.4 2.4M15.3 15.3l2.4 2.4M17.7 6.3l-2.4 2.4M8.7 15.3l-2.4 2.4"/>',
+    network:  '<circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="19" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M12 7.5v4M12 11.5 6.5 17M12 11.5 17.5 17"/>',
+    monitor:  '<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>',
+    database: '<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>',
+    cloud:    '<path d="M17.5 19a4.5 4.5 0 0 0 .5-8.97A6 6 0 0 0 6.2 10.4 3.8 3.8 0 0 0 6.5 19h11Z"/>',
+    activity: '<path d="M3 12h4l3 8 4-16 3 8h4"/>',
+    shield:   '<path d="M12 2 4 6v6c0 5 3.4 8.9 8 10 4.6-1.1 8-5 8-10V6l-8-4Z"/><path d="m9 12 2 2 4-4"/>',
+    book:     '<path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15Z"/><path d="M4 17.5h16"/>',
+    gradcap:  '<path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/>',
+    mail:     '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/>',
+    github:   '<path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.3 4.3 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.3 4.3 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/>',
+    linkedin: '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-11h4v1.5A6 6 0 0 1 16 8Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>',
+    file:     '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Z"/><path d="M14 2v6h6"/>',
+    ext:      '<path d="M7 17 17 7M9 7h8v8"/>',
+    chev:     '<path d="m6 9 6 6 6-6"/>',
+    close:    '<path d="M6 6l12 12M18 6 6 18"/>',
+    menu:     '<path d="M4 7h16M4 12h16M4 17h16"/>'
+  };
+  const svg = (name, size) =>
+    `<svg width="${size || 18}" height="${size || 18}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">${P[name] || ""}</svg>`;
+
+  const tags = (list, cls) => (list || []).map((x) => `<span class="tag ${cls || ""}">${x}</span>`).join("");
+  const heading = (eyebrow, title, lede) =>
+    `<p class="section-eyebrow reveal">${t(eyebrow)}</p>
+     <h2 class="section-title reveal">${t(title)}</h2>
+     ${lede ? `<p class="section-lede reveal">${t(lede)}</p>` : ""}`;
+
+  /* ---------- NAV ---------- */
+  function renderNav() {
+    el("navLinks").innerHTML = DATA.nav
+      .map((n) => `<li><a href="#${n.id}" data-nav="${n.id}">${t(n.label)}</a></li>`)
+      .join("");
+    el("navMobile").innerHTML =
+      DATA.nav.map((n) => `<a href="#${n.id}" data-nav="${n.id}">${t(n.label)}</a>`).join("") +
+      `<a href="#contact" data-nav="contact">${t(DATA.hireLabel)}</a>`;
+    el("hireBtn").textContent = t(DATA.hireLabel);
+    document.querySelectorAll(".lang-btn").forEach((b) =>
+      b.classList.toggle("active", b.dataset.lang === state.lang)
+    );
+  }
+
+  /* ---------- HERO ---------- */
+  function renderHero() {
+    const m = DATA.meta, h = DATA.hero;
+
+    const socials = [
+      { icon: "github", href: m.github.url, label: "GitHub" },
+      m.linkedin ? { icon: "linkedin", href: m.linkedin, label: "LinkedIn" } : null,
+      { icon: "mail", href: "mailto:" + m.email, label: "Email" }
+    ].filter(Boolean);
+
+    const portrait = m.photo
+      ? `<img src="${m.photo}" alt="${m.name}" width="310" height="400" />`
+      : `<span class="photo-monogram">${m.initials}</span>
+         <span class="photo-monogram-hint">${t(h.photoHint)}</span>`;
+
+    el("hero").innerHTML = `
+      <div class="hero-content">
+        <div class="status-badge reveal">
+          <span class="status-dot"></span><span>${t(h.status)}</span>
+        </div>
+
+        <h1 class="hero-name reveal">${m.first}<em>${m.last}</em></h1>
+
+        <p class="hero-handle reveal">
+          <a href="${m.github.url}" target="_blank" rel="noopener">${m.github.handle}</a>
+          <span class="sep">·</span>${t(m.role)}
+        </p>
+
+        <p class="hero-role reveal">${t(h.headline)}</p>
+        <p class="hero-tagline reveal">${t(h.tagline)}</p>
+
+        <div class="hero-cta reveal">
+          <a href="#projects" class="btn-primary">${t(h.ctaPrimary)}</a>
+          <a href="#contact" class="btn-outline">${t(h.ctaSecondary)}</a>
+          ${m.resume ? `<a href="${m.resume}" class="btn-outline" download>${svg("file", 15)} ${t(h.ctaResume)}</a>` : ""}
+        </div>
+
+        <div class="hero-socials reveal">
+          ${socials.map((s) => `<a class="social-link" href="${s.href}" target="_blank" rel="noopener" aria-label="${s.label}">${svg(s.icon, 17)}</a>`).join("")}
+        </div>
+
+        <div class="hero-stats">
+          ${h.stats.map((s, i) => `
+            <div class="stat-card reveal" style="transition-delay:${i * 70}ms">
+              <span class="stat-number">${s.value}</span>
+              <span class="stat-label">${t(s.label)}</span>
+            </div>`).join("")}
+        </div>
+      </div>
+
+      <div class="hero-photo-wrap reveal">
+        <div class="photo-outer-frame">
+          <div class="photo-inner-frame">
+            <div class="photo-img-wrap">
+              ${portrait}
+              <div class="photo-badge">
+                <span class="status-dot"></span>
+                <span class="photo-badge-text">${t(h.photoBadge)}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  /* ---------- ABOUT ---------- */
+  function renderAbout() {
+    const a = DATA.about;
+    el("about").innerHTML = `
+      <div class="about-inner">
+        <div>
+          ${heading(a.eyebrow, a.title)}
+          <div class="about-body">
+            ${a.paragraphs.map((p) => `<p class="reveal">${t(p)}</p>`).join("")}
+          </div>
+        </div>
+        <div style="margin-top:0.5rem">
+          ${a.cards.map((c, i) => `
+            <div class="about-card reveal" style="transition-delay:${i * 70}ms">
+              <div class="about-card-icon ic--${c.tone}">${svg(c.icon, 18)}</div>
+              <div>
+                <p class="about-card-title">${t(c.title)}</p>
+                <p class="about-card-desc">${t(c.desc)}</p>
+              </div>
+            </div>`).join("")}
+        </div>
+      </div>`;
+  }
+
+  /* ---------- TECH STACK ---------- */
+  function renderSkills() {
+    const s = DATA.skills;
+    el("skills").innerHTML = `
+      <div class="section-inner">
+        ${heading(s.eyebrow, s.title, s.lede)}
+        <div class="skills-grid">
+          ${s.groups.map((g, i) => `
+            <div class="skill-card reveal ${g.ai ? "skill-card--primary" : ""}" style="transition-delay:${(i % 3) * 70}ms">
+              <div class="skill-card-header">
+                <div class="skill-icon ic--${g.tone}">${svg(g.icon, 17)}</div>
+                <h3 class="skill-card-title">${t(g.title)}</h3>
+              </div>
+              <div class="skill-tags">
+                ${tags(g.key, g.ai ? "tag--ai" : "tag--key")}
+                ${tags(g.rest)}
+              </div>
+            </div>`).join("")}
+        </div>
+      </div>`;
+  }
+
+  /* ---------- JOURNEY ---------- */
+  function renderJourney() {
+    const j = DATA.journey;
+    el("journey").innerHTML = `
+      <div class="section-inner">
+        ${heading(j.eyebrow, j.title, j.lede)}
+        <div class="exp-list">
+          ${j.items.map((x) => `
+            <article class="exp-item reveal">
+              <div class="exp-meta">
+                <span class="exp-badge exp-badge--${x.tone}">${t(x.badge)}</span>
+                <span class="exp-anchor">${t(x.anchor)}</span>
+              </div>
+              <div class="exp-card">
+                <div class="exp-header">
+                  <div>
+                    <h3 class="exp-role">${t(x.role)}</h3>
+                    <p class="exp-company">${t(x.context)}</p>
+                  </div>
+                  <span class="exp-tag">${t(x.tag)}</span>
+                </div>
+                <p class="exp-summary">${t(x.summary)}</p>
+                <ul class="exp-bullets">${x.bullets.map((b) => `<li>${t(b)}</li>`).join("")}</ul>
+              </div>
+            </article>`).join("")}
+        </div>
+      </div>`;
+  }
+
+  /* ---------- PROJECTS ---------- */
+  function media(p, L) {
+    if (p.shots && p.shots.length) {
+      return `
+        <div class="proj-slideshow" data-show="${p.id}">
+          <div class="slideshow-track" id="${p.id}Track"></div>
+          ${p.shots.length > 1 ? `
+            <button class="slide-btn slide-btn--prev" type="button" aria-label="Previous" data-slide="${p.id}" data-dir="-1">${svg("chev", 16)}</button>
+            <button class="slide-btn slide-btn--next" type="button" aria-label="Next" data-slide="${p.id}" data-dir="1">${svg("chev", 16)}</button>
+            <div class="slide-dots" id="${p.id}Dots"></div>` : ""}
+          <div class="slide-caption" id="${p.id}Caption"></div>
+        </div>`;
+    }
+    return `<div class="proj-image-slot">${t(L.noShots)}<span>${t(L.addShots)}</span></div>`;
+  }
+
+  function caseStudy(p, L) {
+    const c = p.caseStudy;
+    if (!c) return "";
+    const block = (label, content) =>
+      `<div class="case-block"><p class="case-block-label">${t(label)}</p>${content}</div>`;
+    const list = (arr) => `<ul>${arr.map((i) => `<li>${t(i)}</li>`).join("")}</ul>`;
+
+    return `
+      <details class="case">
+        <summary>${t(L.case)} ${svg("chev", 15).replace("<svg", '<svg class="case-chevron"')}</summary>
+        <div class="case-body">
+          ${block(L.problem,  `<p>${t(c.problem)}</p>`)}
+          ${block(L.solution, `<p>${t(c.solution)}</p>`)}
+          ${block(L.arch,     `<p>${t(c.architecture)}</p>`)}
+          ${block(L.role,     `<p>${t(c.role)}</p>`)}
+          ${block(L.chall,    list(c.challenges))}
+          ${block(L.prod,     list(c.production))}
+          ${block(L.outcome,  `<p>${t(c.outcome)}</p>`)}
+        </div>
+      </details>`;
+  }
+
+  function projectCard(p, L) {
+    const links = [
+      p.url  ? `<a class="proj-ext-link" href="${p.url}" target="_blank" rel="noopener">${t(L.visit)} ${svg("ext", 13)}</a>` : "",
+      p.repo ? `<a class="proj-ext-link" href="${p.repo}" target="_blank" rel="noopener" style="animation:none;background:var(--bg);border-color:var(--border);color:var(--muted)">${svg("github", 13)} ${t(L.code)}</a>` : ""
+    ].join("");
+
+    const body = `
+      <div class="proj-card-header">
+        <div class="proj-badges">
+          ${p.featured ? `<span class="proj-badge proj-badge--star">★ ${t(p.star)}</span>` : ""}
+          <span class="proj-badge proj-badge--colored">${t(p.badge)}</span>
+        </div>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap">${links}</div>
+      </div>
+      <h3 class="proj-title">${p.title}</h3>
+      <p class="proj-overview">${t(p.overview)}</p>
+      <ul class="proj-highlights">${p.highlights.map((h) => `<li>${t(h)}</li>`).join("")}</ul>
+      <div class="proj-tags">${tags(p.tags.key, "tag--key")}${tags(p.tags.rest)}</div>`;
+
+    const why = `
+      <div>
+        <p class="proj-why-label">${t(L.why)}</p>
+        <div class="proj-why-list">
+          ${p.why.map((w) => `<p class="proj-why-item"><strong>${w.tech}</strong> — ${t(w.reason)}</p>`).join("")}
+        </div>
+      </div>`;
+
+    if (!p.wide) {
+      return `<article class="proj-card reveal" style="display:flex;flex-direction:column;gap:1.1rem">
+                ${body}${why}${caseStudy(p, L)}
+              </article>`;
+    }
+
+    return `
+      <article class="proj-card reveal ${p.featured ? "proj-card--featured" : ""}">
+        <div class="proj-wide-inner">
+          <div class="proj-wide-left">${body}</div>
+          <div class="proj-wide-right">${media(p, L)}${why}</div>
+        </div>
+        <div style="margin-top:1.4rem">${caseStudy(p, L)}</div>
+      </article>`;
+  }
+
+  function renderProjects() {
+    const pr = DATA.projects;
+    el("projects").innerHTML = `
+      <div class="section-inner">
+        ${heading(pr.eyebrow, pr.title, pr.lede)}
+        <div class="projects-list">${pr.items.map((p) => projectCard(p, pr.labels)).join("")}</div>
+      </div>`;
+  }
+
+  /* ---------- PRODUCTION ---------- */
+  function renderProduction() {
+    const pd = DATA.production;
+    el("production").innerHTML = `
+      <div class="section-inner">
+        ${heading(pd.eyebrow, pd.title, pd.lede)}
+        <div class="prod-grid">
+          ${pd.groups.map((g, i) => `
+            <div class="prod-card reveal" style="transition-delay:${(i % 3) * 70}ms">
+              <div class="prod-card-head">
+                <div class="skill-icon ic--${g.tone}">${svg(g.icon, 17)}</div>
+                <h3 class="prod-card-title">${t(g.title)}</h3>
+              </div>
+              <ul class="prod-list">${g.items.map((x) => `<li>${t(x)}</li>`).join("")}</ul>
+            </div>`).join("")}
+        </div>
+        <p class="prod-note reveal">${t(pd.note)}</p>
+      </div>`;
+  }
+
+  /* ---------- EDUCATION ---------- */
+  function renderEducation() {
+    const e = DATA.education;
+    el("education").innerHTML = `
+      <div class="section-inner">
+        <p class="section-eyebrow edu-eyebrow reveal">${t(e.eyebrow)}</p>
+        <h2 class="section-title reveal">${t(e.title)}</h2>
+        <div class="edu-grid">
+          ${e.schools.map((s, i) => `
+            <div class="edu-card reveal" style="transition-delay:${i * 70}ms">
+              <div class="edu-icon">${svg("gradcap", 18)}</div>
+              <div>
+                <h4 class="edu-title">${t(s.program)}</h4>
+                <p class="edu-school">${t(s.school)}</p>
+                <p class="edu-years">${t(s.years)}</p>
+              </div>
+            </div>`).join("")}
+        </div>
+        <div class="lang-grid">
+          ${e.languages.map((l, i) => `
+            <div class="lang-card reveal" style="transition-delay:${i * 60}ms">
+              <h4 class="lang-name">${t(l.name)}</h4>
+              <p class="lang-level">${t(l.level)}</p>
+            </div>`).join("")}
+        </div>
+      </div>`;
+  }
+
+  /* ---------- CONTACT ---------- */
+  function renderContact() {
+    const c = DATA.contact, m = DATA.meta;
+    const cards = [
+      { icon: "mail",     label: c.labels.email,    value: m.email,          href: "mailto:" + m.email },
+      { icon: "github",   label: c.labels.github,   value: m.github.handle,  href: m.github.url, ext: true },
+      { icon: "linkedin", label: c.labels.linkedin, value: m.linkedin ? m.linkedin.replace(/^https?:\/\/(www\.)?/, "") : null, href: m.linkedin, ext: true },
+      { icon: "file",     label: c.labels.resume,   value: m.resume ? "resume.pdf" : null, href: m.resume }
+    ];
+
+    el("contact").innerHTML = `
+      <div class="contact-inner">
+        <p class="section-eyebrow reveal">${t(c.eyebrow)}</p>
+        <h2 class="contact-title reveal">${t(c.title)}</h2>
+        <p class="contact-sub reveal">${t(c.sub)}</p>
+        <div class="contact-cards">
+          ${cards.map((x, i) => {
+            const inner = `
+              <div class="contact-icon">${svg(x.icon, 20)}</div>
+              <span class="contact-card-label">${t(x.label)}</span>
+              <span class="contact-card-value">${x.value || t(c.labels.empty)}</span>`;
+            const delay = `style="transition-delay:${i * 60}ms"`;
+            return x.href
+              ? `<a class="contact-card reveal" href="${x.href}" ${x.ext ? 'target="_blank" rel="noopener"' : ""} ${delay}>${inner}</a>`
+              : `<div class="contact-card contact-card--empty reveal" ${delay}>${inner}</div>`;
+          }).join("")}
+        </div>
+        <div class="contact-status reveal">
+          <span class="status-dot"></span><span>${t(c.status)}</span>
+        </div>
+      </div>`;
+  }
+
+  /* ---------- FOOTER ---------- */
+  function renderFooter() {
+    const m = DATA.meta;
+    el("footer").innerHTML = `
+      <span>© ${new Date().getFullYear()} ${m.name} · ${t(m.role)}</span>
+      <span>${t(DATA.footer.note)}</span>
+      <a href="${m.github.url}" target="_blank" rel="noopener">${m.github.handle}</a>`;
+  }
+
+  /* ---------- SLIDESHOW ---------- */
+  const shows = {};
+  function initSlideshows() {
+    DATA.projects.items.forEach((p) => {
+      if (!p.shots || !p.shots.length) return;
+      const track = el(p.id + "Track");
+      const dots = el(p.id + "Dots");
+      const cap = el(p.id + "Caption");
+      if (!track) return;
+      track.innerHTML = "";
+      if (dots) dots.innerHTML = "";
+      shows[p.id] = { i: 0, total: p.shots.length, shots: p.shots };
+
+      p.shots.forEach((s, i) => {
+        const img = document.createElement("img");
+        img.src = s.src;
+        img.className = "slide-img";
+        img.alt = s.alt || t(s.caption);
+        img.loading = i === 0 ? "eager" : "lazy";
+        img.decoding = "async";
+        track.appendChild(img);
+        if (dots) {
+          const d = document.createElement("button");
+          d.type = "button";
+          d.className = "slide-dot" + (i === 0 ? " active" : "");
+          d.setAttribute("aria-label", "Slide " + (i + 1));
+          d.addEventListener("click", () => goTo(p.id, i));
+          dots.appendChild(d);
+        }
+      });
+      if (cap) cap.textContent = t(p.shots[0].caption);
+    });
+
+    document.querySelectorAll("[data-slide]").forEach((b) =>
+      b.addEventListener("click", () => {
+        const id = b.dataset.slide;
+        goTo(id, shows[id].i + Number(b.dataset.dir));
+      })
+    );
+  }
+
+  function goTo(id, index) {
+    const s = shows[id];
+    if (!s) return;
+    s.i = (index + s.total) % s.total;
+    el(id + "Track").style.transform = `translateX(-${s.i * 100}%)`;
+    const dots = el(id + "Dots");
+    if (dots) dots.querySelectorAll(".slide-dot").forEach((d, i) => d.classList.toggle("active", i === s.i));
+    const cap = el(id + "Caption");
+    if (cap) cap.textContent = t(s.shots[s.i].caption);
+  }
+
+  /* ---------- REVEAL ---------- */
+  let revealObs;
+  function setupReveal(first) {
+    if (revealObs) revealObs.disconnect();
+    revealObs = new IntersectionObserver(
+      (entries) => entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add("in"); revealObs.unobserve(e.target); }
+      }),
+      { threshold: 0.1, rootMargin: "0px 0px -6% 0px" }
+    );
+    document.querySelectorAll(".reveal").forEach((n) => {
+      if (!first) {
+        const r = n.getBoundingClientRect();
+        if (r.top < innerHeight && r.bottom > 0) { n.style.transitionDelay = "0ms"; n.classList.add("in"); return; }
+      }
+      revealObs.observe(n);
+    });
+  }
+
+  /* ---------- SCROLL SPY ---------- */
+  let spyObs;
+  function setupSpy() {
+    if (spyObs) spyObs.disconnect();
+    spyObs = new IntersectionObserver(
+      (entries) => entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        document.querySelectorAll("[data-nav]").forEach((a) => a.classList.remove("active"));
+        document.querySelectorAll(`[data-nav="${e.target.id}"]`).forEach((a) => a.classList.add("active"));
+      }),
+      { rootMargin: "-45% 0px -50% 0px" }
+    );
+    DATA.nav.forEach((n) => el(n.id) && spyObs.observe(el(n.id)));
+  }
+
+  /* ---------- EVENTS ---------- */
+  function bind() {
+    const burger = el("burger"), menu = el("navMobile");
+    burger.onclick = () => {
+      const open = menu.classList.toggle("open");
+      burger.innerHTML = svg(open ? "close" : "menu", 18);
+      burger.setAttribute("aria-expanded", String(open));
+    };
+    menu.querySelectorAll("a").forEach((a) =>
+      a.addEventListener("click", () => {
+        menu.classList.remove("open");
+        burger.innerHTML = svg("menu", 18);
+        burger.setAttribute("aria-expanded", "false");
+      })
+    );
+    document.querySelectorAll(".lang-btn").forEach((b) =>
+      b.addEventListener("click", () => {
+        if (b.dataset.lang === state.lang) return;
+        state.lang = b.dataset.lang;
+        localStorage.setItem("sa-lang", state.lang);
+        render(false);
+      })
+    );
+  }
+
+  /* ---------- BOOT ---------- */
+  function render(first) {
+    document.documentElement.lang = state.lang;
+    document.title = DATA.meta.name + " — " + t(DATA.meta.role);
+
+    renderNav(); renderHero(); renderAbout(); renderSkills(); renderJourney();
+    renderProjects(); renderProduction(); renderEducation(); renderContact(); renderFooter();
+
+    initSlideshows();
+    bind();
+    setupReveal(first);
+    setupSpy();
+  }
+
+  render(true);
+})();
+</script>
+</body>
+</html>
