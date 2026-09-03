@@ -586,6 +586,7 @@ html.theme-light #themeBtn .ico-sun  { display: none; }
 .exp-bullets li::before{
   content: '–'; position: absolute; left: 0; color: var(--accent); font-weight: 600;
 }
+.exp-bullets li strong { color: var(--text); font-weight: 600; }
 
 /* ── PROJECTS ── */
 .projects-list { display: flex; flex-direction: column; gap: 1.4rem; }
@@ -964,6 +965,7 @@ a.proj-ext-link:hover{
     <section id="hero"></section>
     <section id="about"      class="section section--raised"></section>
     <section id="skills"     class="section"></section>
+    <section id="experience" class="section"></section>
     <section id="journey"    class="section section--raised"></section>
     <section id="projects"   class="section"></section>
     <section id="production" class="section section--raised"></section>
@@ -1000,6 +1002,7 @@ const DATA = {
   nav: [
     { id: "about",      label: { en: "About",      ko: "소개",      uz: "Haqimda" } },
     { id: "skills",     label: { en: "Stack",      ko: "기술 스택",  uz: "Stack" } },
+    { id: "experience", label: { en: "Experience", ko: "경력",      uz: "Tajriba" } },
     { id: "journey",    label: { en: "Journey",    ko: "여정",      uz: "Yo'l" } },
     { id: "projects",   label: { en: "Projects",   ko: "프로젝트",   uz: "Loyihalar" } },
     { id: "production", label: { en: "Production", ko: "프로덕션",   uz: "Production" } },
@@ -1038,34 +1041,45 @@ const DATA = {
   /* ── ABOUT ── */
   about: {
     eyebrow: { en: "About", ko: "소개", uz: "Haqimda" },
-    title:   { en: "Systems, end to end", ko: "처음부터 끝까지, 시스템 전체", uz: "Tizimlar, boshidan oxirigacha" },
+    title:   { en: "About Me", ko: "저에 대해", uz: "Men haqimda" },
     paragraphs: [
-      { en: "I work across the whole path a feature travels: the React and Next.js surface a user touches, the NestJS, Spring Boot and FastAPI services behind it, the PostgreSQL and MongoDB stores underneath, and the Kubernetes cluster it all runs on.",
-        ko: "하나의 기능이 지나가는 경로 전체를 다룹니다. 사용자가 마주하는 React · Next.js 화면, 그 뒤의 NestJS · Spring Boot · FastAPI 서비스, 그 아래의 PostgreSQL · MongoDB 저장소, 그리고 이 모두가 돌아가는 쿠버네티스 클러스터까지입니다.",
-        uz: "Men funksiya bosib o'tadigan butun yo'lni qamrayman: foydalanuvchi ko'radigan React va Next.js qatlami, uning ortidagi NestJS, Spring Boot va FastAPI xizmatlari, ostidagi PostgreSQL va MongoDB omborlari, va bularning barchasi ishlaydigan Kubernetes klasteri." },
-      { en: "Most of what I have learned came from taking two products all the way to a public domain and keeping them there — <strong>HR Copilot AI</strong> and <strong>Motobay</strong>. That means writing the service, containerising it, wiring CI/CD, provisioning TLS, and then answering the harder question: how do I know it is still working?",
-        ko: "제가 배운 것의 대부분은 두 제품을 실제 도메인까지 올리고 계속 운영하면서 얻었습니다 — <strong>HR Copilot AI</strong>와 <strong>Motobay</strong>입니다. 서비스를 작성하고, 컨테이너로 만들고, CI/CD를 연결하고, TLS를 발급하는 일, 그리고 더 어려운 질문에 답하는 일까지 포함됩니다. 지금도 정상 동작한다는 것을 나는 어떻게 아는가?",
-        uz: "Bilganlarimning ko'pi ikkita mahsulotni ochiq domenga chiqarib, o'sha yerda ushlab turishdan keldi — <strong>HR Copilot AI</strong> va <strong>Motobay</strong>. Bu xizmatni yozish, konteynerlash, CI/CD ulash, TLS sozlash va keyin qiyinroq savolga javob berishni anglatadi: u hali ham ishlayotganini qayerdan bilaman?" },
-      { en: "On the AI side I am less interested in a model that sounds confident than in one that can <strong>show its work</strong>. HR Copilot's matching returns the passage in a resume that backs each requirement, with the page it came from, so a recruiter can check it rather than trust it.",
-        ko: "AI 쪽에서는 자신 있게 말하는 모델보다 <strong>근거를 보여 주는</strong> 모델에 관심이 있습니다. HR Copilot의 매칭은 각 요구사항을 뒷받침하는 이력서 구절과 해당 페이지를 함께 돌려주기 때문에, 채용 담당자가 믿는 대신 직접 확인할 수 있습니다.",
-        uz: "AI tomonida meni ishonch bilan gapiradigan model emas, balki <strong>ishini ko'rsata oladigan</strong> model qiziqtiradi. HR Copilot'ning moslashtiruvi har bir talabni tasdiqlovchi rezyume parchasini, u qaysi sahifadan olinganini qaytaradi — shunda rekruter ishonish o'rniga tekshira oladi." },
-      { en: "I am looking for engineering work where backend architecture, production infrastructure and AI integration sit in the same role rather than in three different teams.",
-        ko: "백엔드 아키텍처, 프로덕션 인프라, AI 통합이 세 개의 다른 팀이 아니라 하나의 역할 안에 있는 엔지니어링 업무를 찾고 있습니다.",
-        uz: "Backend arxitekturasi, production infratuzilmasi va AI integratsiyasi uch xil jamoada emas, bitta rolda jamlangan muhandislik ishini qidiryapman." }
+      { en: "I'm a <strong>Full-Stack Software Engineer</strong> based in <strong>South Korea</strong>, focused on building modern web applications, backend systems, AI-powered features, and production-ready cloud infrastructure. My core stack includes <strong>Next.js</strong>, <strong>NestJS</strong>, <strong>Spring Boot</strong>, <strong>FastAPI</strong>, <strong>PostgreSQL</strong>, <strong>Redis</strong>, <strong>Kafka</strong>, <strong>Qdrant</strong>, <strong>Docker</strong>, and <strong>Kubernetes</strong>.",
+        ko: "저는 <strong>대한민국</strong>에 거주하는 <strong>풀스택 소프트웨어 엔지니어</strong>로, 모던 웹 애플리케이션, 백엔드 시스템, AI 기반 기능, 프로덕션급 클라우드 인프라를 만드는 데 집중하고 있습니다. 주력 스택은 <strong>Next.js</strong>, <strong>NestJS</strong>, <strong>Spring Boot</strong>, <strong>FastAPI</strong>, <strong>PostgreSQL</strong>, <strong>Redis</strong>, <strong>Kafka</strong>, <strong>Qdrant</strong>, <strong>Docker</strong>, <strong>Kubernetes</strong>입니다.",
+        uz: "Men <strong>Janubiy Koreya</strong>da yashovchi <strong>Full-Stack dasturchi muhandisman</strong> — zamonaviy veb-ilovalar, backend tizimlar, AI asosidagi funksiyalar va production darajasidagi bulut infratuzilmasini qurishga e'tibor qarataman. Asosiy stack'im: <strong>Next.js</strong>, <strong>NestJS</strong>, <strong>Spring Boot</strong>, <strong>FastAPI</strong>, <strong>PostgreSQL</strong>, <strong>Redis</strong>, <strong>Kafka</strong>, <strong>Qdrant</strong>, <strong>Docker</strong> va <strong>Kubernetes</strong>." },
+      { en: "During my internship in <strong>Suwon</strong>, South Korea, I worked on a data-driven learning platform with real-time classroom functionality, payment integrations, backend APIs, database optimization, and a <strong>RAG</strong>-based AI layer using <strong>Google Gemini</strong> and <strong>vector search</strong>.",
+        ko: "<strong>수원</strong>에서의 인턴십 기간에는 실시간 클래스룸 기능, 결제 연동, 백엔드 API, 데이터베이스 최적화, 그리고 <strong>Google Gemini</strong>와 <strong>벡터 검색</strong>을 활용한 <strong>RAG</strong> 기반 AI 레이어를 갖춘 데이터 기반 학습 플랫폼을 개발했습니다.",
+        uz: "<strong>Suwon</strong>dagi (Janubiy Koreya) amaliyotim davomida real vaqtli sinf funksiyalari, to'lov integratsiyalari, backend API'lar, ma'lumotlar bazasini optimallashtirish hamda <strong>Google Gemini</strong> va <strong>vektor qidiruv</strong>ga asoslangan <strong>RAG</strong> AI qatlamiga ega, ma'lumotlarga asoslangan ta'lim platformasi ustida ishladim." },
+      { en: "I have also gained backend-focused experience working with secure authentication, <strong>RESTful</strong> and <strong>GraphQL</strong> APIs, <strong>Redis</strong> caching, <strong>CI/CD</strong> pipelines, containerized deployments, and production-oriented debugging. Earlier in my career, I worked alongside experienced developers at <strong>IT Park Tashkent</strong>, building full-stack and real-time web functionality.",
+        ko: "또한 안전한 인증, <strong>RESTful</strong> · <strong>GraphQL</strong> API, <strong>Redis</strong> 캐싱, <strong>CI/CD</strong> 파이프라인, 컨테이너 기반 배포, 프로덕션 중심 디버깅 등 백엔드 중심 경험을 쌓았습니다. 커리어 초기에는 <strong>IT Park Tashkent</strong>에서 경험 많은 개발자들과 함께 풀스택 및 실시간 웹 기능을 개발했습니다.",
+        uz: "Shuningdek, xavfsiz autentifikatsiya, <strong>RESTful</strong> va <strong>GraphQL</strong> API'lar, <strong>Redis</strong> keshlash, <strong>CI/CD</strong> pipeline'lari, konteynerlashtirilgan deploylar va production'ga yo'naltirilgan debugging bilan backend yo'nalishida tajriba orttirdim. Karyeramning boshida esa <strong>IT Park Tashkent</strong>da tajribali dasturchilar bilan yonma-yon full-stack va real vaqtli veb funksiyalarni yaratdim." },
+      { en: "The projects that represent my strongest work are <strong>HR Copilot AI</strong> and <strong>Motobay</strong>. Through them, I have worked across the full software lifecycle — from frontend and backend development to AI integration, Kubernetes deployment, monitoring, messaging, TLS, and backup/restore workflows.",
+        ko: "제 가장 강력한 작업을 보여 주는 프로젝트는 <strong>HR Copilot AI</strong>와 <strong>Motobay</strong>입니다. 이 프로젝트들을 통해 프런트엔드 · 백엔드 개발부터 AI 통합, Kubernetes 배포, 모니터링, 메시징, TLS, 백업/복구 워크플로까지 소프트웨어 수명주기 전체를 경험했습니다.",
+        uz: "Eng kuchli ishlarimni ko'rsatadigan loyihalar — <strong>HR Copilot AI</strong> va <strong>Motobay</strong>. Ular orqali frontend va backend dasturlashdan tortib AI integratsiyasi, Kubernetes deploy, monitoring, xabar almashish, TLS va zaxiralash/tiklash jarayonlarigacha — dastur hayot siklining to'liq yo'lida ishladim." },
+      { en: "I currently hold a <strong>D-10 Job Seeking Visa</strong> in South Korea and am actively looking for Software Engineer, Backend, Full-Stack, AI Platform, or DevOps-oriented roles in South Korea or remote teams worldwide.",
+        ko: "현재 대한민국 <strong>D-10 구직 비자</strong>를 보유하고 있으며, 대한민국 또는 전 세계 원격 팀에서 소프트웨어 엔지니어, 백엔드, 풀스택, AI 플랫폼, DevOps 관련 포지션을 적극적으로 찾고 있습니다.",
+        uz: "Hozirda Janubiy Koreyada <strong>D-10 ish qidiruv vizasi</strong>ga egaman va Janubiy Koreyada yoki dunyo bo'ylab masofaviy jamoalarda Software Engineer, Backend, Full-Stack, AI Platform yoki DevOps yo'nalishidagi rollarni faol qidiryapman." }
     ],
     cards: [
-      { icon: "layers", tone: "blue",
-        title: { en: "End-to-end ownership", ko: "엔드투엔드 책임", uz: "Boshidan oxirigacha mas'uliyat" },
-        desc:  { en: "Frontend, services, database, container, cluster and the pipeline that ships them.", ko: "프런트엔드, 서비스, 데이터베이스, 컨테이너, 클러스터, 그리고 이를 배포하는 파이프라인까지.", uz: "Frontend, xizmatlar, baza, konteyner, klaster va ularni yetkazadigan pipeline." } },
-      { icon: "server", tone: "green",
-        title: { en: "Production infrastructure", ko: "프로덕션 인프라", uz: "Production infratuzilma" },
-        desc:  { en: "Self-managed k3s with Helm, Traefik, cert-manager and verified restores.", ko: "Helm · Traefik · cert-manager와 검증된 복구 절차를 갖춘 직접 운영 k3s.", uz: "Helm, Traefik, cert-manager va tekshirilgan tiklash bilan o'zim boshqargan k3s." } },
+      { icon: "monitor", tone: "blue",
+        title: { en: "HR Copilot AI — AI Recruitment Platform", ko: "HR Copilot AI — AI 채용 플랫폼", uz: "HR Copilot AI — AI rekruting platformasi" },
+        desc:  { en: "Built and deployed a production HR platform with RAG, Qdrant vector search, evidence-grounded AI matching, multi-language support, backend services, Kubernetes, monitoring, and automated backups.",
+                 ko: "RAG, Qdrant 벡터 검색, 근거 기반 AI 매칭, 다국어 지원, 백엔드 서비스, Kubernetes, 모니터링, 자동 백업을 갖춘 프로덕션 HR 플랫폼을 구축하고 배포했습니다.",
+                 uz: "RAG, Qdrant vektor qidiruv, dalilga asoslangan AI moslashtirish, ko'p tilli qo'llab-quvvatlash, backend xizmatlari, Kubernetes, monitoring va avtomatik zaxiralash bilan production HR platformasini qurib, ishga tushirdim." } },
       { icon: "sparkles", tone: "violet",
-        title: { en: "Evidence-grounded AI", ko: "근거 기반 AI", uz: "Dalilga asoslangan AI" },
-        desc:  { en: "RAG over Qdrant with citations back to the source page, not unsourced claims.", ko: "출처 없는 주장 대신 원문 페이지까지 인용하는 Qdrant 기반 RAG.", uz: "Qdrant ustida RAG — manba sahifasiga havola bilan, asossiz da'volarsiz." } },
-      { icon: "network", tone: "slate",
-        title: { en: "Distributed backends", ko: "분산 백엔드", uz: "Taqsimlangan backend" },
-        desc:  { en: "Kafka and BullMQ between services; Redis Pub/Sub so replicas can scale safely.", ko: "서비스 간 Kafka와 BullMQ, 레플리카를 안전하게 늘리기 위한 Redis Pub/Sub.", uz: "Xizmatlar orasida Kafka va BullMQ; replikalar xavfsiz kengayishi uchun Redis Pub/Sub." } }
+        title: { en: "LLM & RAG Engineering", ko: "LLM 및 RAG 엔지니어링", uz: "LLM va RAG muhandisligi" },
+        desc:  { en: "Built RAG pipelines, embeddings, semantic search, document retrieval, AI-assisted matching, and evidence-grounded generation using Gemini, FastAPI, and Qdrant.",
+                 ko: "Gemini, FastAPI, Qdrant를 활용해 RAG 파이프라인, 임베딩, 시맨틱 검색, 문서 검색, AI 보조 매칭, 근거 기반 생성을 구축했습니다.",
+                 uz: "Gemini, FastAPI va Qdrant yordamida RAG pipeline'lari, embeddinglar, semantik qidiruv, hujjat qidiruvi, AI yordamidagi moslashtirish va dalilga asoslangan generatsiyani qurdim." } },
+      { icon: "server", tone: "green",
+        title: { en: "Backend & Complex Systems", ko: "백엔드 및 복잡한 시스템", uz: "Backend va murakkab tizimlar" },
+        desc:  { en: "Worked with authentication, RESTful and GraphQL APIs, Redis, Kafka, BullMQ, database optimization, payment integrations, realtime communication, and production debugging.",
+                 ko: "인증, RESTful · GraphQL API, Redis, Kafka, BullMQ, 데이터베이스 최적화, 결제 연동, 실시간 통신, 프로덕션 디버깅을 다뤘습니다.",
+                 uz: "Autentifikatsiya, RESTful va GraphQL API'lar, Redis, Kafka, BullMQ, bazani optimallashtirish, to'lov integratsiyalari, real vaqtli aloqa va production debugging bilan ishladim." } },
+      { icon: "layers", tone: "slate",
+        title: { en: "Broad Engineering Experience", ko: "폭넓은 엔지니어링 경험", uz: "Keng qamrovli muhandislik tajribasi" },
+        desc:  { en: "Experience across Suwon, South Korea, remote backend work, IT Park Tashkent, and production portfolio projects spanning full-stack development, AI integration, DevOps, and cloud infrastructure.",
+                 ko: "대한민국 수원, 원격 백엔드 업무, IT Park Tashkent, 그리고 풀스택 개발 · AI 통합 · DevOps · 클라우드 인프라를 아우르는 프로덕션 포트폴리오 프로젝트에 걸친 경험이 있습니다.",
+                 uz: "Suwon (Janubiy Koreya), masofaviy backend ishlari, IT Park Tashkent hamda full-stack dasturlash, AI integratsiyasi, DevOps va bulut infratuzilmasini qamrab olgan production portfel loyihalari bo'ylab tajriba." } }
     ]
   },
 
@@ -1115,6 +1129,89 @@ const DATA = {
       { icon: "wrench", tone: "slate", title: { en: "Tools & Environment", ko: "도구 및 환경", uz: "Vositalar va muhit" },
         key: ["VS Code", "Cursor AI", "GitHub"],
         rest: ["Docker Desktop", "Figma", "FileZilla", "Postman Canary", "ER-Modelling"] }
+    ]
+  },
+
+  /* ── WORK HISTORY ──
+     Same exp-* card system as the journey section. `context` (company line)
+     and `summary` (intro paragraph) are optional per entry. */
+  experience: {
+    eyebrow: { en: "Work History", ko: "경력 사항", uz: "Ish tarixi" },
+    title:   { en: "Experience", ko: "경력", uz: "Tajriba" },
+    items: [
+      {
+        badge: { en: "Internship", ko: "인턴십", uz: "Amaliyot" }, tone: "blue",
+        anchor: { en: "3 Months · Suwon, South Korea", ko: "3개월 · 대한민국 수원", uz: "3 oy · Suwon, Janubiy Koreya" },
+        role: { en: "Full Stack AI Developer", ko: "풀스택 AI 개발자", uz: "Full Stack AI dasturchi" },
+        context: null,
+        tag: { en: "AI · Full Stack", ko: "AI · 풀스택", uz: "AI · Full Stack" },
+        summary: {
+          en: "Participated in building a data-based platform, handling <strong>70% of the development</strong>, while serving <strong>2,500+ users</strong> — covering feature development, bug fixing, update integration, user complaint resolution, and AI integration.",
+          ko: "데이터 기반 플랫폼 구축에 참여해 <strong>개발의 70%</strong>를 담당했으며, <strong>2,500명 이상의 사용자</strong>를 대상으로 기능 개발, 버그 수정, 업데이트 반영, 사용자 불만 해결, AI 통합을 수행했습니다.",
+          uz: "Ma'lumotlarga asoslangan platforma qurilishida qatnashib, <strong>ishlanmaning 70%</strong> ini bajardim va <strong>2,500+ foydalanuvchi</strong>ga xizmat qildim — funksiya yaratish, xatolarni tuzatish, yangilanishlarni integratsiya qilish, foydalanuvchi shikoyatlarini hal qilish va AI integratsiyasi shu jumlada."
+        },
+        bullets: [
+          { en: "Optimized <strong>MySQL</strong> database queries, improving response times for high-traffic course and content modules, and supported CDN integration to accelerate media delivery.",
+            ko: "<strong>MySQL</strong> 데이터베이스 쿼리를 최적화해 트래픽이 많은 강의 · 콘텐츠 모듈의 응답 시간을 개선하고, 미디어 전송 가속을 위한 CDN 연동을 지원했습니다.",
+            uz: "<strong>MySQL</strong> so'rovlarini optimallashtirib, yuqori trafikli kurs va kontent modullarining javob vaqtini yaxshiladim hamda media yetkazishni tezlashtirish uchun CDN integratsiyasini qo'llab-quvvatladim." },
+          { en: "Designed and implemented <strong>RESTful APIs</strong> for a real-time live classroom platform using <strong>NestJS</strong>, supporting video session management and classroom features.",
+            ko: "<strong>NestJS</strong>로 실시간 라이브 클래스룸 플랫폼의 <strong>RESTful API</strong>를 설계 · 구현해 영상 세션 관리와 클래스룸 기능을 지원했습니다.",
+            uz: "<strong>NestJS</strong> yordamida real vaqtli jonli sinf platformasi uchun <strong>RESTful API</strong>larni loyihaladim va amalga oshirdim — video sessiyalarni boshqarish va sinf funksiyalarini qo'llab-quvvatlagan holda." },
+          { en: "Integrated <strong>Stripe</strong> and <strong>PayApp</strong> payment gateways, implementing secure payment processing, transaction handling, and refund functionality.",
+            ko: "<strong>Stripe</strong>와 <strong>PayApp</strong> 결제 게이트웨이를 연동해 안전한 결제 처리, 트랜잭션 처리, 환불 기능을 구현했습니다.",
+            uz: "<strong>Stripe</strong> va <strong>PayApp</strong> to'lov shlyuzlarini ulab, xavfsiz to'lov jarayoni, tranzaksiyalarni boshqarish va pulni qaytarish funksiyasini amalga oshirdim." },
+          { en: "Implemented a <strong>Retrieval-Augmented Generation (RAG)</strong> solution using <strong>Google Gemini</strong>, vector embeddings, and document retrieval — allowing students to ask questions about course materials and receive accurate, context-aware responses.",
+            ko: "<strong>Google Gemini</strong>, 벡터 임베딩, 문서 검색을 활용한 <strong>RAG(검색 증강 생성)</strong> 솔루션을 구현해, 학생들이 강의 자료에 대해 질문하고 정확하고 맥락에 맞는 답변을 받을 수 있게 했습니다.",
+            uz: "<strong>Google Gemini</strong>, vektor embeddinglar va hujjat qidiruvidan foydalanib <strong>Retrieval-Augmented Generation (RAG)</strong> yechimini amalga oshirdim — talabalar kurs materiallari bo'yicha savol berib, aniq va kontekstga mos javob oladi." }
+        ]
+      },
+      {
+        badge: { en: "Full-Time · Remote", ko: "정규직 · 원격", uz: "To'liq stavka · Masofaviy" }, tone: "green",
+        anchor: { en: "Apr 2024 – Jan 2026", ko: "2024년 4월 – 2026년 1월", uz: "2024-yil aprel – 2026-yil yanvar" },
+        role: { en: "Backend Developer", ko: "백엔드 개발자", uz: "Backend dasturchi" },
+        context: { en: "Veriff · Estonia (Remote)", ko: "Veriff · 에스토니아 (원격)", uz: "Veriff · Estoniya (masofaviy)" },
+        tag: { en: "Backend · DevOps", ko: "백엔드 · DevOps", uz: "Backend · DevOps" },
+        summary: null,
+        bullets: [
+          { en: "Designed and implemented complex backend business logic with a strong focus on <strong>secure authentication</strong>, <strong>authorization flows</strong>, API reliability, and efficient client-server communication.",
+            ko: "<strong>안전한 인증</strong>, <strong>인가 플로우</strong>, API 신뢰성, 효율적인 클라이언트-서버 통신에 중점을 두고 복잡한 백엔드 비즈니스 로직을 설계 · 구현했습니다.",
+            uz: "<strong>Xavfsiz autentifikatsiya</strong>, <strong>avtorizatsiya oqimlari</strong>, API ishonchliligi va samarali klient-server aloqasiga alohida e'tibor qaratgan holda murakkab backend biznes mantig'ini loyihaladim va amalga oshirdim." },
+          { en: "Improved backend performance and response times through <strong>Redis</strong>-based caching, database query optimization, and better service-level data flow management.",
+            ko: "<strong>Redis</strong> 기반 캐싱, 데이터베이스 쿼리 최적화, 서비스 수준 데이터 흐름 개선을 통해 백엔드 성능과 응답 시간을 향상시켰습니다.",
+            uz: "<strong>Redis</strong> asosidagi keshlash, baza so'rovlarini optimallashtirish va xizmat darajasidagi ma'lumot oqimini yaxshilash orqali backend unumdorligi va javob vaqtlarini oshirdim." },
+          { en: "Developed and maintained <strong>RESTful</strong> and <strong>GraphQL</strong> APIs across backend services while working with <strong>Docker</strong>, <strong>CI/CD</strong> pipelines, and containerized deployment workflows.",
+            ko: "백엔드 서비스 전반의 <strong>RESTful</strong> · <strong>GraphQL</strong> API를 개발 · 유지보수하며 <strong>Docker</strong>, <strong>CI/CD</strong> 파이프라인, 컨테이너 기반 배포 워크플로를 다뤘습니다.",
+            uz: "Backend xizmatlari bo'ylab <strong>RESTful</strong> va <strong>GraphQL</strong> API'larni ishlab chiqdim va qo'llab-quvvatladim, bunda <strong>Docker</strong>, <strong>CI/CD</strong> pipeline'lari va konteynerlashtirilgan deploy jarayonlari bilan ishladim." },
+          { en: "Diagnosed and resolved complex backend, database, and integration issues, contributing to improved service stability, reliability, and maintainability.",
+            ko: "복잡한 백엔드 · 데이터베이스 · 연동 이슈를 진단하고 해결해 서비스 안정성, 신뢰성, 유지보수성 향상에 기여했습니다.",
+            uz: "Murakkab backend, ma'lumotlar bazasi va integratsiya muammolarini aniqlab hal qildim — xizmat barqarorligi, ishonchliligi va qo'llab-quvvatlanishini yaxshilashga hissa qo'shdim." },
+          { en: "Collaborated with experienced engineers on backend architecture, code reviews, bug fixing, API flow improvements, and production-oriented engineering practices.",
+            ko: "경험 많은 엔지니어들과 백엔드 아키텍처, 코드 리뷰, 버그 수정, API 흐름 개선, 프로덕션 중심 엔지니어링 관행에 대해 협업했습니다.",
+            uz: "Tajribali muhandislar bilan backend arxitekturasi, kod ko'rib chiqish, xatolarni tuzatish, API oqimini yaxshilash va production'ga yo'naltirilgan muhandislik amaliyotlari bo'yicha hamkorlik qildim." }
+        ]
+      },
+      {
+        badge: { en: "On-Site", ko: "상주 근무", uz: "Ofisda" }, tone: "muted",
+        anchor: { en: "Jun 2021 – May 2022", ko: "2021년 6월 – 2022년 5월", uz: "2021-yil iyun – 2022-yil may" },
+        role: { en: "Junior Developer", ko: "주니어 개발자", uz: "Junior dasturchi" },
+        context: { en: "IT Park Tashkent · Uzbekistan", ko: "IT Park Tashkent · 우즈베키스탄", uz: "IT Park Tashkent · O'zbekiston" },
+        tag: { en: "Full Stack · Junior", ko: "풀스택 · 주니어", uz: "Full Stack · Junior" },
+        summary: null,
+        bullets: [
+          { en: "Collaborated with senior engineers to strengthen <strong>full-stack development</strong> skills and gain hands-on experience with production-oriented software development practices.",
+            ko: "시니어 엔지니어들과 협업하며 <strong>풀스택 개발</strong> 역량을 다지고, 프로덕션 중심의 소프트웨어 개발 관행을 실무로 경험했습니다.",
+            uz: "Senior muhandislar bilan hamkorlik qilib <strong>full-stack dasturlash</strong> ko'nikmalarimni mustahkamladim va production'ga yo'naltirilgan dasturlash amaliyotlarida amaliy tajriba orttirdim." },
+          { en: "Contributed to a <strong>real-time</strong> learning platform serving more than <strong>120 users</strong>, supporting stable online classroom functionality and improving live video sessions through <strong>adaptive bitrate streaming</strong> and network monitoring.",
+            ko: "<strong>120명 이상의 사용자</strong>가 이용하는 <strong>실시간</strong> 학습 플랫폼에 기여해, 안정적인 온라인 클래스룸 기능을 지원하고 <strong>적응형 비트레이트 스트리밍</strong>과 네트워크 모니터링으로 라이브 영상 세션을 개선했습니다.",
+            uz: "<strong>120 dan ortiq foydalanuvchi</strong>ga xizmat qiluvchi <strong>real vaqtli</strong> ta'lim platformasiga hissa qo'shdim — barqaror onlayn sinf funksiyalarini qo'llab-quvvatlab, <strong>adaptiv bitreyt striming</strong> va tarmoq monitoringi orqali jonli video sessiyalarni yaxshiladim." },
+          { en: "Implemented and maintained live-classroom moderation and connectivity features, including participant management and automatic audio-only fallback during unstable network conditions.",
+            ko: "참여자 관리와 불안정한 네트워크 환경에서의 자동 오디오 전용 폴백을 포함한 라이브 클래스룸 모더레이션 · 연결 기능을 구현하고 유지보수했습니다.",
+            uz: "Jonli sinf moderatsiyasi va ulanish funksiyalarini amalga oshirdim va qo'llab-quvvatladim — ishtirokchilarni boshqarish va beqaror tarmoq sharoitida avtomatik faqat-audio rejimga o'tish shu jumlada." },
+          { en: "Assisted with debugging, feature implementation, <strong>API integration</strong>, and resolving frontend/backend issues under the guidance of senior developers.",
+            ko: "시니어 개발자의 지도 아래 디버깅, 기능 구현, <strong>API 연동</strong>, 프런트엔드/백엔드 이슈 해결을 지원했습니다.",
+            uz: "Senior dasturchilar rahbarligida debugging, funksiyalarni amalga oshirish, <strong>API integratsiyasi</strong> va frontend/backend muammolarini hal qilishda yordam berdim." }
+        ]
+      }
     ]
   },
 
@@ -1234,9 +1331,9 @@ Object.assign(DATA, {
   projects: {
     eyebrow: { en: "Projects", ko: "프로젝트", uz: "Loyihalar" },
     title:   { en: "Selected work", ko: "선별한 작업", uz: "Tanlangan ishlar" },
-    lede:    { en: "Two production platforms and the app that taught me the fundamentals. Expand any card for the full case study.",
-               ko: "운영 중인 두 개의 플랫폼과 기본기를 익힌 애플리케이션입니다. 각 카드를 펼치면 전체 케이스 스터디를 볼 수 있습니다.",
-               uz: "Ikkita production platforma va menga asoslarni o'rgatgan ilova. To'liq case study uchun kartani oching." },
+    lede:    { en: "Two production platforms, a university website I contributed to as a backend developer, and the app that taught me the fundamentals. Expand any card for the full case study.",
+               ko: "운영 중인 두 개의 플랫폼, 백엔드 개발자로 기여한 대학 웹사이트, 그리고 기본기를 익힌 애플리케이션입니다. 각 카드를 펼치면 전체 케이스 스터디를 볼 수 있습니다.",
+               uz: "Ikkita production platforma, backend dasturchi sifatida hissa qo'shgan universitet veb-sayti va menga asoslarni o'rgatgan ilova. To'liq case study uchun kartani oching." },
     labels: {
       visit:   { en: "Visit project",  ko: "프로젝트 보기",   uz: "Loyihaga o'tish" },
       code:    { en: "Source",         ko: "소스 코드",      uz: "Kod" },
@@ -1398,7 +1495,24 @@ Object.assign(DATA, {
         ],
         tags: { key: ["Next.js", "NestJS", "GraphQL", "MongoDB", "WebRTC", "Kubernetes"],
                 rest: ["React", "Apollo Client", "Redis", "BullMQ", "WebSocket", "coturn", "Docker", "Traefik", "Prometheus", "Grafana", "Cloudflare R2"] },
-        shots: [],
+        /* Gallery order: home with AI assistant → nearby map → listings → realtime call → listing detail */
+        shots: [
+          { src: "assets/motobay/motobay-home-ai-chat.jpg",
+            alt: "Motobay home page with Gemini AI assistant and live chat panels",
+            caption: { en: "Home — AI assistant & live chat", ko: "홈 — AI 어시스턴트 & 라이브 채팅", uz: "Bosh sahifa — AI yordamchi va jonli chat" } },
+          { src: "assets/motobay/motobay-near-you-map.jpg",
+            alt: "Motobay nearby motorbikes and dealers on a Naver map",
+            caption: { en: "Bikes & dealers near you", ko: "내 주변 바이크 & 딜러", uz: "Yaqiningizdagi motolar va dilerlar" } },
+          { src: "assets/motobay/motobay-browse-listings.jpg",
+            alt: "Motobay motorbike listings with search filters",
+            caption: { en: "Browse listings with filters", ko: "필터로 매물 탐색", uz: "Filtrlar bilan e'lonlarni ko'rish" } },
+          { src: "assets/motobay/motobay-messages-video-call.jpg",
+            alt: "Motobay realtime messaging with an active WebRTC video call",
+            caption: { en: "Realtime chat & video call", ko: "실시간 채팅 & 영상 통화", uz: "Realtime chat va video qo'ng'iroq" } },
+          { src: "assets/motobay/motobay-listing-detail.jpg",
+            alt: "Motobay listing detail page with currency conversion",
+            caption: { en: "Listing detail & currency conversion", ko: "매물 상세 & 환율 변환", uz: "E'lon tafsiloti va valyuta konvertatsiyasi" } }
+        ],
         caseStudy: {
           problem: { en: "A marketplace where buyers and dealers negotiate needs the conversation to happen inside the product. Bolting on a third-party chat widget would have put the most important interaction outside the system that owns the listing.",
                      ko: "구매자와 딜러가 협상하는 마켓플레이스에서는 대화가 제품 안에서 일어나야 합니다. 외부 채팅 위젯을 붙이면 가장 중요한 상호작용이 매물을 소유한 시스템 바깥으로 나가 버립니다.",
@@ -1448,6 +1562,48 @@ Object.assign(DATA, {
           { tech: "MongoDB Atlas", reason: { en: "Listings vary widely in shape between bike types and dealers, and a managed store of record kept persistence out of the cluster's failure domain.", ko: "매물은 차종과 딜러에 따라 구조가 크게 달라지며, 관리형 원본 저장소를 쓰면 영속성이 클러스터 장애 범위 밖에 남습니다.", uz: "E'lonlar mototsikl turlari va dilerlar orasida shakli bo'yicha juda farq qiladi, boshqariladigan ombor esa saqlashni klaster nosozlik doirasidan tashqarida ushlab turdi." } },
           { tech: "HPA on CPU", reason: { en: "Traffic is bursty around listing activity; scaling on CPU against the pod request was measurable and predictable enough to trust.", ko: "트래픽이 매물 활동에 따라 급증하는데, 파드 리퀘스트 대비 CPU 기반 스케일링이 충분히 측정 가능하고 예측 가능했습니다.", uz: "Trafik e'lon faolligi atrofida to'lqinli; pod so'roviga nisbatan CPU bo'yicha kengayish o'lchanadigan va ishonchli darajada bashoratli edi." } }
         ]
+      },
+
+      {
+        id: "westminster",
+        featured: false, wide: true,
+        badge: { en: "Full-Stack · University Platform", ko: "풀스택 · 대학 플랫폼", uz: "Full-Stack · Universitet platformasi" },
+        /* Contributor role shown as a neutral badge next to the project-type badge */
+        role:  { en: "Contributor — Backend Developer", ko: "기여자 — 백엔드 개발자", uz: "Hissa qo'shuvchi — Backend dasturchi" },
+        title: "Westminster University in Tashkent",
+        url:   "https://www.wiut.uz/",
+        repo:  null,
+        overview: {
+          en: "One of the largest and most prestigious universities in Uzbekistan selected me to contribute as a backend developer for its website. I worked alongside a team of experienced senior software engineers, contributing to backend development, bug fixing, complex problem-solving, and API flow management.",
+          ko: "우즈베키스탄에서 가장 크고 명망 있는 대학 중 한 곳이 자사 웹사이트의 백엔드 개발자로 저를 참여시켰습니다. 경험이 풍부한 시니어 소프트웨어 엔지니어 팀과 함께 일하며 백엔드 개발, 버그 수정, 복잡한 문제 해결, API 흐름 관리에 기여했습니다.",
+          uz: "O'zbekistondagi eng yirik va nufuzli universitetlardan biri meni o'z veb-sayti uchun backend dasturchi sifatida hissa qo'shishga tanladi. Tajribali senior dasturchi muhandislar jamoasi bilan yonma-yon ishlab, backend dasturlash, xatolarni tuzatish, murakkab muammolarni hal qilish va API oqimini boshqarishga hissa qo'shdim."
+        },
+        highlights: [
+          { en: "Assisted senior backend engineers with code implementation.",
+            ko: "시니어 백엔드 엔지니어의 코드 구현을 지원했습니다.",
+            uz: "Senior backend muhandislariga kod yozishda yordam berdim." },
+          { en: "Resolved backend issues as they arose and improved request handling.",
+            ko: "발생하는 백엔드 이슈를 해결하고 요청 처리를 개선했습니다.",
+            uz: "Yuzaga kelgan backend muammolarini hal qildim va so'rovlarni qayta ishlashni yaxshiladim." },
+          { en: "Supported API flow and service-level functionality.",
+            ko: "API 흐름과 서비스 수준 기능을 지원했습니다.",
+            uz: "API oqimi va xizmat darajasidagi funksionallikni qo'llab-quvvatladim." }
+        ],
+        tags: { key: ["Java", "Spring", "PostgreSQL"],
+                rest: ["MariaDB", "Redis", "Tailwind CSS"] },
+        shots: [
+          { src: "assets/westminster-university/westminster-undergraduate-home.png",
+            alt: "Westminster International University in Tashkent — undergraduate programmes page",
+            caption: { en: "Undergraduate programmes", ko: "학부 과정", uz: "Bakalavriat dasturlari" } },
+          { src: "assets/westminster-university/westminster-study-in-uzbekistan.jpg",
+            alt: "Westminster International University in Tashkent — Study in Uzbekistan page",
+            caption: { en: "Study in Uzbekistan", ko: "우즈베키스탄 유학", uz: "O'zbekistonda o'qish" } },
+          { src: "assets/westminster-university/westminster-student-support.png",
+            alt: "Westminster International University in Tashkent — student support and exchange programmes",
+            caption: { en: "Student support & exchange", ko: "학생 지원 및 교환 프로그램", uz: "Talabalarni qo'llab-quvvatlash va almashinuv" } }
+        ],
+        caseStudy: null,
+        why: []
       },
 
       {
@@ -1756,14 +1912,13 @@ Object.assign(DATA, {
       </div>`;
   }
 
-  /* ---------- JOURNEY ---------- */
-  function renderJourney() {
-    const j = DATA.journey;
-    el("journey").innerHTML = `
+  /* ---------- EXPERIENCE / JOURNEY (shared exp-* card system) ---------- */
+  function renderExpSection(id, d) {
+    el(id).innerHTML = `
       <div class="section-inner">
-        ${heading(j.eyebrow, j.title, j.lede)}
+        ${heading(d.eyebrow, d.title, d.lede)}
         <div class="exp-list">
-          ${j.items.map((x) => `
+          ${d.items.map((x) => `
             <article class="exp-item reveal">
               <div class="exp-meta">
                 <span class="exp-badge exp-badge--${x.tone}">${t(x.badge)}</span>
@@ -1773,17 +1928,19 @@ Object.assign(DATA, {
                 <div class="exp-header">
                   <div>
                     <h3 class="exp-role">${t(x.role)}</h3>
-                    <p class="exp-company">${t(x.context)}</p>
+                    ${x.context ? `<p class="exp-company">${t(x.context)}</p>` : ""}
                   </div>
                   <span class="exp-tag">${t(x.tag)}</span>
                 </div>
-                <p class="exp-summary">${t(x.summary)}</p>
+                ${x.summary ? `<p class="exp-summary">${t(x.summary)}</p>` : ""}
                 <ul class="exp-bullets">${x.bullets.map((b) => `<li>${t(b)}</li>`).join("")}</ul>
               </div>
             </article>`).join("")}
         </div>
       </div>`;
   }
+  function renderExperience() { renderExpSection("experience", DATA.experience); }
+  function renderJourney()    { renderExpSection("journey",    DATA.journey); }
 
   /* ---------- PROJECTS ---------- */
   function media(p, L) {
@@ -1825,8 +1982,8 @@ Object.assign(DATA, {
 
   function projectCard(p, L) {
     const links = [
-      p.url  ? `<a class="proj-ext-link" href="${p.url}" target="_blank" rel="noopener">${t(L.visit)} ${svg("ext", 13)}</a>` : "",
-      p.repo ? `<a class="proj-ext-link" href="${p.repo}" target="_blank" rel="noopener" style="animation:none;background:var(--bg);border-color:var(--border);color:var(--muted)">${svg("github", 13)} ${t(L.code)}</a>` : ""
+      p.url  ? `<a class="proj-ext-link" href="${p.url}" target="_blank" rel="noopener noreferrer">${t(L.visit)} ${svg("ext", 13)}</a>` : "",
+      p.repo ? `<a class="proj-ext-link" href="${p.repo}" target="_blank" rel="noopener noreferrer" style="animation:none;background:var(--bg);border-color:var(--border);color:var(--muted)">${svg("github", 13)} ${t(L.code)}</a>` : ""
     ].join("");
 
     const body = `
@@ -1834,6 +1991,7 @@ Object.assign(DATA, {
         <div class="proj-badges">
           ${p.featured ? `<span class="proj-badge proj-badge--star">★ ${t(p.star)}</span>` : ""}
           <span class="proj-badge proj-badge--colored">${t(p.badge)}</span>
+          ${p.role ? `<span class="proj-badge">${t(p.role)}</span>` : ""}
         </div>
         <div style="display:flex;gap:0.5rem;flex-wrap:wrap">${links}</div>
       </div>
@@ -1842,13 +2000,13 @@ Object.assign(DATA, {
       <ul class="proj-highlights">${p.highlights.map((h) => `<li>${t(h)}</li>`).join("")}</ul>
       <div class="proj-tags">${tags(p.tags.key, "tag--key")}${tags(p.tags.rest)}</div>`;
 
-    const why = `
+    const why = p.why && p.why.length ? `
       <div>
         <p class="proj-why-label">${t(L.why)}</p>
         <div class="proj-why-list">
           ${p.why.map((w) => `<p class="proj-why-item"><strong>${w.tech}</strong> — ${t(w.reason)}</p>`).join("")}
         </div>
-      </div>`;
+      </div>` : "";
 
     if (!p.wide) {
       return `<article class="proj-card reveal" style="display:flex;flex-direction:column;gap:1.1rem">
@@ -1856,13 +2014,14 @@ Object.assign(DATA, {
               </article>`;
     }
 
+    const cs = caseStudy(p, L);
     return `
       <article class="proj-card reveal ${p.featured ? "proj-card--featured" : ""}">
         <div class="proj-wide-inner">
           <div class="proj-wide-left">${body}</div>
           <div class="proj-wide-right">${media(p, L)}${why}</div>
         </div>
-        <div style="margin-top:1.4rem">${caseStudy(p, L)}</div>
+        ${cs ? `<div style="margin-top:1.4rem">${cs}</div>` : ""}
       </article>`;
   }
 
@@ -2097,7 +2256,7 @@ Object.assign(DATA, {
     document.documentElement.lang = state.lang;
     document.title = DATA.meta.name + " — " + t(DATA.meta.role);
 
-    renderNav(); renderHero(); renderAbout(); renderSkills(); renderJourney();
+    renderNav(); renderHero(); renderAbout(); renderSkills(); renderExperience(); renderJourney();
     renderProjects(); renderProduction(); renderEducation(); renderContact(); renderFooter();
 
     initSlideshows();
